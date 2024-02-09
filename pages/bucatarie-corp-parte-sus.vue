@@ -70,7 +70,7 @@ const calculeazaDimensiuni = (e) => {
   const generareDimensiuni = (lungimeCorpSus, inaltimeCorpSus) => {
     // Calcularea dimensiunii laterale
     const dimensiuneLaterala = {
-      lungime: lungimeCorpSus,
+      lungime: inaltimeCorpSus,
       latime: 300,
     };
 
