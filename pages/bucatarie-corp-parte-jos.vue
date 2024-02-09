@@ -1,6 +1,6 @@
 <template>
   <div class="w-full flex justify-center items-center min-h-90">
-    <div class="flex w-full items-center justify-center flex-wrap gap-2">
+    <div class="flex w-full items-center justify-center flex-wrap gap-2 mx-2">
       <form class="bg-white p-8 rounded shadow-md w-full max-w-md">
         <div class="mb-4 text-gray-700">
           <label class="block text-sm font-bold mb-2" for="corp-parte-jos">
