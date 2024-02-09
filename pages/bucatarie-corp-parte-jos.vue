@@ -3,9 +3,12 @@
     <div class="flex w-full items-center justify-center flex-wrap gap-2 mx-2">
       <form class="bg-white p-8 rounded shadow-md w-full max-w-md">
         <div class="mb-4 text-gray-700">
-          <label class="block text-sm font-bold mb-2" for="corp-parte-jos">
+          <label class="block text-md font-bold mb-2" for="corp-parte-jos">
             Bucatarie corp parte jos
           </label>
+          <label for="dimensiuneFund" class="text-sm font-bold"
+            >Dimensiune fund</label
+          >
           <input
             v-model="dimensiuneFund"
             class="w-full px-3 py-2 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
@@ -88,6 +91,5 @@ const calculeazaDimensiuni = (e) => {
     };
   };
   rezultate.value.push(generareDimensiuni(dimensiuneFund.value));
-  console.log(rezultate.value);
 };
 </script>
