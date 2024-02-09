@@ -9,7 +9,12 @@ export default {
     "./error.vue",
   ],
   theme: {
-    extend: {},
+    extend: {
+      minHeight: {
+        10: "10vh",
+        90: "90vh",
+      },
+    },
   },
   plugins: [],
 };
