@@ -72,7 +72,9 @@
           Capac dulap: lungime {{ rez.capacDulap.lungime }}, latime
           {{ rez.capacDulap.latime }} <br />
           Polita dulap: lungime {{ rez.politaDulap.lungime }}, latime
-          {{ rez.politaDulap.latime }}, Bucati ({{ numarPoliteDulap }})<br />
+          {{ rez.politaDulap.latime }}, Bucati ({{
+            rez.politaDulap.polite
+          }})<br />
           PFL dulap: inaltime {{ rez.pflDulap.inaltime }}, lungime
           {{ rez.pflDulap.lungime }}<br />
         </p>
@@ -93,43 +95,62 @@ const rezultate = ref([]);
 const calculeazaDimensiuni = (e) => {
   e.preventDefault();
 
-  const lateraleDulap1 = {
-    lungime: inaltimeDulap.value - 100 - 36,
-    latime: adancimeDulap,
+  const generareDimensiuni = (
+    lungimeDulap,
+    adancimeDulap,
+    inaltimeDulap,
+    numarPoliteDulap
+  ) => {
+    // Calcularea dimensiunilor
+    const lateraleDulap1 = {
+      lungime: inaltimeDulap - 100 - 36,
+      latime: adancimeDulap,
+    };
+
+    const lateraleDulap2 = {
+      lungime: inaltimeDulap - 100 - 36,
+      latime: adancimeDulap,
+    };
+
+    const fundDulap = {
+      lungime: lungimeDulap,
+      latime: adancimeDulap,
+    };
+
+    const capacDulap = {
+      lungime: lungimeDulap,
+      latime: adancimeDulap,
+    };
+
+    const politaDulap = {
+      lungime: lungimeDulap - 36,
+      latime: adancimeDulap - 5,
+      polite: numarPoliteDulap,
+    };
+
+    const pflDulap = {
+      inaltime: inaltimeDulap - 100 - 5,
+      lungime: lungimeDulap - 5,
+    };
+
+    // Returnarea rezultatelor sub formă de obiect
+    return {
+      lateraleDulap1,
+      lateraleDulap2,
+      fundDulap,
+      capacDulap,
+      politaDulap,
+      pflDulap,
+    };
   };
 
-  const lateraleDulap2 = {
-    lungime: inaltimeDulap.value - 100 - 36,
-    latime: adancimeDulap,
-  };
-
-  const fundDulap = {
-    lungime: lungimeDulap,
-    latime: adancimeDulap,
-  };
-
-  const capacDulap = {
-    lungime: lungimeDulap,
-    latime: adancimeDulap,
-  };
-
-  const politaDulap = {
-    lungime: lungimeDulap.value - 36,
-    latime: adancimeDulap.value - 5,
-  };
-
-  const pflDulap = {
-    inaltime: inaltimeDulap.value - 100 - 5,
-    lungime: lungimeDulap.value - 5,
-  };
-
-  rezultate.value.push({
-    lateraleDulap1,
-    lateraleDulap2,
-    fundDulap,
-    capacDulap,
-    politaDulap,
-    pflDulap,
-  });
+  rezultate.value.push(
+    generareDimensiuni(
+      lungimeDulap.value,
+      adancimeDulap.value,
+      inaltimeDulap.value,
+      numarPoliteDulap.value
+    )
+  );
 };
 </script>
