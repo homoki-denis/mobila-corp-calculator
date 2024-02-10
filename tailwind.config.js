@@ -14,6 +14,9 @@ export default {
         10: "10vh",
         90: "90vh",
       },
+      backgroundImage: {
+        main: "url('~/assets/images/background.jpg')",
+      },
     },
   },
   plugins: [],

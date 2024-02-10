@@ -4,7 +4,7 @@
       <div
         class="bg-white text-black p-4 md:p-8 rounded shadow-md w-full max-w-md"
       >
-        <p class="text-md font-bold mb-2">Bucatarie corp colt jos</p>
+        <p class="text-md font-bold mb-2">înălțime corp colț suspendat</p>
 
         <div class="flex items-end">
           <input
