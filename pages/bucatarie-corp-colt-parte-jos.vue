@@ -2,7 +2,7 @@
   <div class="w-full flex justify-center items-center min-h-90">
     <div class="flex w-full items-center justify-center flex-wrap gap-2 mx-2">
       <div
-        class="bg-white text-black px-8 py-8 rounded shadow-md w-full max-w-md"
+        class="bg-white text-black p-4 md:p-8 rounded shadow-md w-full max-w-md"
       >
         <p class="text-md font-bold mb-2">Bucatarie corp colt jos</p>
         <p v-for="rez in rezultate" class="text-gray-700">
