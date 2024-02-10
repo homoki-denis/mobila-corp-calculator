@@ -1,7 +1,7 @@
 <template>
   <div class="w-full flex justify-center items-center min-h-90">
     <div
-      class="gap-2 flex justify-center items-center flex-wrap flex-col md:flex-row"
+      class="z-50 gap-2 flex justify-center items-center flex-wrap flex-col md:flex-row"
     >
       <NuxtLink to="bucatarie-corp-parte-jos">
         <button
