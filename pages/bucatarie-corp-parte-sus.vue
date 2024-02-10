@@ -104,6 +104,5 @@ const calculeazaDimensiuni = (e) => {
   rezultate.value.push(
     generareDimensiuni(lungimeCorpSus.value, inaltimeCorpSus.value)
   );
-  console.log(rezultate);
 };
 </script>

@@ -98,6 +98,5 @@ const afiseazaElemente = () => {
   for (let i = 0; i < numarElemente.value; i++) {
     arrayRezultate.value.push([...rezultate.value]);
   }
-  console.log(arrayRezultate);
 };
 </script>
