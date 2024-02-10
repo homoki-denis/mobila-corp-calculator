@@ -72,7 +72,7 @@
           Capac dulap: lungime {{ rez.capacDulap.lungime }}, latime
           {{ rez.capacDulap.latime }} <br />
           Polita dulap: lungime {{ rez.politaDulap.lungime }}, latime
-          {{ rez.politaDulap.latime }} ({{ numarPoliteDulap }})<br />
+          {{ rez.politaDulap.latime }} Bucati ({{ numarPoliteDulap }})<br />
           PFL dulap: inaltime {{ rez.pflDulap.inaltime }}, lungime
           {{ rez.pflDulap.lungime }}<br />
         </p>
@@ -114,8 +114,8 @@ const calculeazaDimensiuni = (e) => {
   };
 
   const politaDulap = {
-    lungime: (lungimeDulap.value - 36) * numarPoliteDulap.value,
-    latime: (adancimeDulap.value - 5) * numarPoliteDulap.value,
+    lungime: lungimeDulap.value - 36,
+    latime: adancimeDulap.value - 5,
   };
 
   const pflDulap = {
