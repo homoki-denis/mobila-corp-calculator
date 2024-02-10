@@ -50,7 +50,7 @@ const calculeazaDimensiuni = (e) => {
   e.preventDefault();
   const generareDimensiuniCorpSus = (inaltimeCorp) => {
     const lateraleDulap = {
-      lungime: inaltimeCorp * 300,
+      lungime: inaltimeCorp,
       latime: 300,
     };
 
