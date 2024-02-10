@@ -72,7 +72,7 @@
           Capac dulap: lungime {{ rez.capacDulap.lungime }}, latime
           {{ rez.capacDulap.latime }} <br />
           Polita dulap: lungime {{ rez.politaDulap.lungime }}, latime
-          {{ rez.politaDulap.latime }} Bucati ({{ numarPoliteDulap }})<br />
+          {{ rez.politaDulap.latime }}, Bucati ({{ numarPoliteDulap }})<br />
           PFL dulap: inaltime {{ rez.pflDulap.inaltime }}, lungime
           {{ rez.pflDulap.lungime }}<br />
         </p>
