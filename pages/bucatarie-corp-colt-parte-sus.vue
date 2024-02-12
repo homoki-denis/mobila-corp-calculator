@@ -6,15 +6,23 @@
       >
         <p class="text-md font-bold mb-2">Inălțime corp colț suspendat</p>
 
-        <div class="flex items-end">
+        <div class="flex items-start flex-col">
           <input
             v-model="inaltimeCorp"
             type="number"
             placeholder="Introdu numarul de elemente"
             class="p-1.5 mt-2 border-2 rounded border-slate-950 hover:border-slate-500"
           />
+          <label for="nrPolita" class="mt-2 font-bold">Numar polite</label>
+          <input
+            v-model="nrPolita"
+            type="number"
+            placeholder="Introdu numarul de polite"
+            class="p-1.5 mt-2 border-2 rounded border-slate-950 hover:border-slate-500"
+          />
+
           <button
-            class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 ml-2 rounded focus:outline-none focus:shadow-outline"
+            class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 mt-2 rounded focus:outline-none focus:shadow-outline"
             @click="calculeazaDimensiuni"
           >
             Calculeaza
@@ -35,6 +43,9 @@
         Spate pal: lungime {{ rez.spatePal.lungime }}, latime
         {{ rez.spatePal.latime }}<br />
         PFL: inaltime {{ rez.pfl.inaltime }}, lungime {{ rez.pfl.lungime }}
+        <br />
+        Polita: lungime {{ rez.polita.lungime }}, latime
+        {{ rez.polita.latime }} ({{ rez.nrPolita }} Buc)
         <p class="font-bold">Corp colt sus</p>
         lungime {{ rez.corpColtSus.lungime }}, latime
         {{ rez.corpColtSus.latime }} (2 Buc)
@@ -48,9 +59,12 @@ import { ref } from "vue";
 
 const inaltimeCorp = ref(0);
 const rezultate = ref([]);
+const nrPolita = ref(0);
+const initialNrPolita = ref(0);
 
 const calculeazaDimensiuni = (e) => {
   e.preventDefault();
+  const initialNrPolita = nrPolita.value;
   const generareDimensiuniCorpSus = (inaltimeCorp) => {
     const lateraleDulap = {
       lungime: inaltimeCorp,
@@ -81,6 +95,12 @@ const calculeazaDimensiuni = (e) => {
       lungime: inaltimeCorp,
       latime: 279,
     };
+
+    const polita = {
+      lungime: 564,
+      latime: 295,
+    };
+
     return {
       lateraleDulap,
       fundCapac1,
@@ -88,8 +108,14 @@ const calculeazaDimensiuni = (e) => {
       spatePal,
       pfl,
       corpColtSus,
+      polita,
+      nrPolita: initialNrPolita,
     };
   };
-  rezultate.value.push(generareDimensiuniCorpSus(inaltimeCorp.value));
+  rezultate.value.push(
+    generareDimensiuniCorpSus(inaltimeCorp.value, nrPolita.value)
+  );
+
+  console.log(rezultate);
 };
 </script>

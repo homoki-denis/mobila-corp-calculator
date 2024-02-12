@@ -90,6 +90,16 @@ const rezultate = ref([
     lungime: 741,
     latime: 795,
   },
+  {
+    nume: "Polita 1",
+    lungime: 741,
+    latime: 795,
+  },
+  {
+    nume: "Polita 1",
+    lungime: 741,
+    latime: 795,
+  },
 ]);
 
 const afiseazaElemente = () => {
