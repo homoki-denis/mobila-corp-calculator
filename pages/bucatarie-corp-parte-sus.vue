@@ -53,7 +53,7 @@
           {{ rez.dimensiuneFundCap.lungime }}, latime
           {{ rez.dimensiuneFundCap.latime }}
         </p>
-        <p class="font-bold">Dimensiuni usi Sus</p>
+        <p class="font-bold">Dimensiuni usi sus</p>
         lungime {{ rez.rezultateUsiSus[i].lungime }}, latime
         {{ rez.rezultateUsiSus[i].latime }} ({{ rez.bucati }} Buc)
       </div>
