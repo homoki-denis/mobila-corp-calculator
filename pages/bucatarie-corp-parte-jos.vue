@@ -42,7 +42,7 @@
           {{ rez.dimensiunePFL.latime }}<br />
           Dimensiuni Poliță: lungime {{ rez.dimensiunePolita.lungime }}, latime
           {{ rez.dimensiunePolita.latime }} <br>
-          <p class="font-bold"> Dimensiuni usi jos</p>
+          <p class="font-bold">Dimensiuni usi jos</p>
           lungime {{ rez.dimensiuneUsiJos[i].lungime }}, latime {{ rez.dimensiuneUsiJos[i].latime }} (<span>{{ rez.bucatiUsi }} Buc</span>) 
         
         </p>

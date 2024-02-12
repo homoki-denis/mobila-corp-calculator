@@ -36,7 +36,7 @@
       </form>
 
       <div
-        v-for="rez in rezultate"
+        v-for="(rez, i) in rezultate"
         class="bg-white text-black px-8 py-12 rounded shadow-md w-full max-w-md"
       >
         <p class="text-gray-700">
@@ -53,6 +53,9 @@
           {{ rez.dimensiuneFundCap.lungime }}, latime
           {{ rez.dimensiuneFundCap.latime }}
         </p>
+        <p class="font-bold">Dimensiuni usi Sus</p>
+        lungime {{ rez.rezultateUsiSus[i].lungime }}, latime
+        {{ rez.rezultateUsiSus[i].latime }} ({{ rez.bucati }} Buc)
       </div>
     </div>
   </div>
@@ -64,10 +67,23 @@ import { ref } from "vue";
 const lungimeCorpSus = ref(0);
 const inaltimeCorpSus = ref(0);
 const rezultate = ref([]);
+const rezultateUsiSus = [];
 
 const calculeazaDimensiuni = (e) => {
   e.preventDefault();
   const generareDimensiuni = (lungimeCorpSus, inaltimeCorpSus) => {
+    let latimeUsa;
+    let bucati;
+    if (lungimeCorpSus <= 450) {
+      latimeUsa = lungimeCorpSus - 3;
+      bucati = 1;
+    } else {
+      latimeUsa = lungimeCorpSus / 2 - 3;
+      bucati = 2;
+    }
+
+    rezultateUsiSus.push({ lungime: inaltimeCorpSus, latime: latimeUsa });
+    console.log(rezultateUsiSus);
     // Calcularea dimensiunii laterale
     const dimensiuneLaterala = {
       lungime: inaltimeCorpSus,
@@ -99,6 +115,8 @@ const calculeazaDimensiuni = (e) => {
       dimensiunePFL: dimensiunePFL,
       dimensiunePolita: dimensiunePolita,
       dimensiuneFundCap: dimensiuneFundCap,
+      rezultateUsiSus: rezultateUsiSus,
+      bucati: bucati,
     };
   };
   rezultate.value.push(
