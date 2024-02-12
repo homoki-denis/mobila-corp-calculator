@@ -43,7 +43,7 @@
           Dimensiuni Poliță: lungime {{ rez.dimensiunePolita.lungime }}, latime
           {{ rez.dimensiunePolita.latime }} <br>
           <p class="font-bold"> Dimensiuni usi jos</p>
-          lungime {{ rez.dimensiuneUsiJos[i].lungime }}, latime {{ rez.dimensiuneUsiJos[i].latime }} (2 buc) 
+          lungime {{ rez.dimensiuneUsiJos[i].lungime }}, latime {{ rez.dimensiuneUsiJos[i].latime }} (<span>{{ rez.bucatiUsi }}</span>) 
         
         </p>
       </div>
@@ -57,23 +57,33 @@ import { ref } from "vue";
 const dimensiuneFund = ref(0);
 const rezultate = ref([]);
 const rezultateUsiJos = [];
+
 // Corp partea de jos
 const calculeazaDimensiuni = (e) => {
   e.preventDefault();
   const generareDimensiuni = (dimensiuneFund) => {
-    
     let latimeUsa;
+    let bucatiUsi;
 
+    // Calcul bucati usi
     if (dimensiuneFund > 450) {
-      latimeUsa= (dimensiuneFund / 2) - 3 ;
-      rezultateUsiJos.push({ lungime: 741, latime: latimeUsa });
-    } else {
-      latimeUsa= dimensiuneFund - 3 ;
-      rezultateUsiJos.push({ lungime: 741, latime: latimeUsa });
+      bucatiUsi = 2
+    }
+    else if(dimensiuneFund === 450) {
+      bucatiUsi = 1
     }
 
-   
-console.log(rezultateUsiJos)
+    // Calcul latime / lungime usi
+    if (dimensiuneFund > 450) {
+      latimeUsa = (dimensiuneFund / 2) - 3 ;
+      rezultateUsiJos.push({ lungime: 741, latime: latimeUsa });
+      
+    } else {
+      latimeUsa = dimensiuneFund - 3 ;
+      rezultateUsiJos.push({ lungime: 741, latime: latimeUsa });
+      bucatiUsi = 1
+    }
+
     // Calcularea dimensiunii laterale
     const dimensiuneLaterala = {
       lungime: 728,
@@ -105,9 +115,10 @@ console.log(rezultateUsiJos)
       dimensiunePFL: dimensiunePFL,
       dimensiunePolita: dimensiunePolita,
       dimensiuneUsiJos: rezultateUsiJos,
+      bucatiUsi: bucatiUsi
     };
   };
   rezultate.value.push(generareDimensiuni(dimensiuneFund.value));
-  console.log(rezultate);
+
 };
 </script>
