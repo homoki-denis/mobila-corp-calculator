@@ -83,7 +83,6 @@ const calculeazaDimensiuni = (e) => {
     }
 
     rezultateUsiSus.push({ lungime: inaltimeCorpSus, latime: latimeUsa });
-    console.log(rezultateUsiSus);
     // Calcularea dimensiunii laterale
     const dimensiuneLaterala = {
       lungime: inaltimeCorpSus,

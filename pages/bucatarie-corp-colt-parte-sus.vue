@@ -24,7 +24,7 @@
 
       <div
         class="bg-white text-black p-8 rounded shadow-md w-full max-w-md"
-        v-for="rez in rezultate"
+        v-for="(rez, i) in rezultate"
       >
         Laterale dulap: lungime {{ rez.lateraleDulap.lungime }}, latime
         {{ rez.lateraleDulap.latime }}<br />
@@ -35,6 +35,9 @@
         Spate pal: lungime {{ rez.spatePal.lungime }}, latime
         {{ rez.spatePal.latime }}<br />
         PFL: inaltime {{ rez.pfl.inaltime }}, lungime {{ rez.pfl.lungime }}
+        <p class="font-bold">Corp colt sus</p>
+        lungime {{ rez.corpColtSus[i].lungime }}, latime
+        {{ rez.corpColtSus[i].latime }} (2 Buc)
       </div>
     </div>
   </div>
@@ -74,15 +77,22 @@ const calculeazaDimensiuni = (e) => {
       lungime: 595,
     };
 
+    const corpColtSus = [
+      {
+        lungime: inaltimeCorp,
+        latime: 279,
+      },
+    ];
+
     return {
       lateraleDulap,
       fundCapac1,
       fundCapac2,
       spatePal,
       pfl,
+      corpColtSus,
     };
   };
   rezultate.value.push(generareDimensiuniCorpSus(inaltimeCorp.value));
-  console.log(rezultate);
 };
 </script>
