@@ -36,8 +36,8 @@
         {{ rez.spatePal.latime }}<br />
         PFL: inaltime {{ rez.pfl.inaltime }}, lungime {{ rez.pfl.lungime }}
         <p class="font-bold">Corp colt sus</p>
-        lungime {{ rez.corpColtSus[i].lungime }}, latime
-        {{ rez.corpColtSus[i].latime }} (2 Buc)
+        lungime {{ rez.corpColtSus.lungime }}, latime
+        {{ rez.corpColtSus.latime }} (2 Buc)
       </div>
     </div>
   </div>
@@ -77,13 +77,10 @@ const calculeazaDimensiuni = (e) => {
       lungime: 595,
     };
 
-    const corpColtSus = [
-      {
-        lungime: inaltimeCorp,
-        latime: 279,
-      },
-    ];
-
+    const corpColtSus = {
+      lungime: inaltimeCorp,
+      latime: 279,
+    };
     return {
       lateraleDulap,
       fundCapac1,
