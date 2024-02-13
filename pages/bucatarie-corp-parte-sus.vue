@@ -14,7 +14,7 @@
             class="w-full px-3 py-2 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
             id="lungimeCorpSus"
             type="number"
-            placeholder="Dimensiune fund"
+            placeholder="Lungime"
           />
           <label for="lungimeCorpSus" class="text-sm font-bold"
             >Inaltime Corp Sus</label
@@ -24,7 +24,15 @@
             class="w-full px-3 py-2 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
             id="inaltimeCorpSus"
             type="number"
-            placeholder="Dimensiune fund"
+            placeholder="Inaltime"
+          />
+          <label for="lungimeCorpSus" class="text-sm font-bold">Polite</label>
+          <input
+            v-model="nrPolita"
+            class="w-full px-3 py-2 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+            id="inaltimeCorpSus"
+            type="number"
+            placeholder="Polite"
           />
         </div>
         <button
@@ -40,14 +48,14 @@
         class="bg-white text-black px-8 py-12 rounded shadow-md w-full max-w-md"
       >
         <p class="text-gray-700">
-          Dimensiune laterala: lungime {{ rez.dimensiuneLaterala.lungime }},
-          latime {{ rez.dimensiuneLaterala.latime }}
+          Dimensiuni laterale: lungime {{ rez.dimensiuneLaterala.lungime }},
+          latime {{ rez.dimensiuneLaterala.latime }} (2 Buc)
           <br />
-          Dimensiune PFL: lungime {{ rez.dimensiunePFL.lungime }}, latime
+          Dimensiuni PFL: lungime {{ rez.dimensiunePFL.lungime }}, latime
           {{ rez.dimensiunePFL.latime }}
           <br />
           Dimensiuni Polita: lungime {{ rez.dimensiunePolita.lungime }}, latime
-          {{ rez.dimensiunePolita.latime }}
+          {{ rez.dimensiunePolita.latime }} ({{ rez.nrPolita }} Buc)
           <br />
           Dimensiuni fund și capac: lungime
           {{ rez.dimensiuneFundCap.lungime }}, latime
@@ -66,10 +74,13 @@ import { ref } from "vue";
 
 const lungimeCorpSus = ref(0);
 const inaltimeCorpSus = ref(0);
+const nrPolita = ref(0);
+const initialNrPolita = ref(0);
 const rezultate = ref([]);
 const rezultateUsiSus = [];
 
 const calculeazaDimensiuni = (e) => {
+  const initialNrPolita = nrPolita.value;
   e.preventDefault();
   const generareDimensiuni = (lungimeCorpSus, inaltimeCorpSus) => {
     let latimeUsa;
@@ -115,6 +126,7 @@ const calculeazaDimensiuni = (e) => {
       dimensiunePolita: dimensiunePolita,
       dimensiuneFundCap: dimensiuneFundCap,
       rezultateUsiSus: rezultateUsiSus,
+      nrPolita: initialNrPolita,
       bucati: bucati,
     };
   };

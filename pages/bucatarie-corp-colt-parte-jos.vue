@@ -7,6 +7,7 @@
         <p class="text-md font-bold mb-2">Bucatarie corp colt jos</p>
         <p v-for="rez in rezultate" class="text-gray-700">
           {{ rez.nume }}: lungime {{ rez.lungime }}, latime {{ rez.latime }}
+          {{ rez.bucati ? `(${rez.bucati} Buc)` : "" }}
         </p>
         <div class="flex items-end">
           <input
@@ -30,7 +31,7 @@
         <div v-for="afis in array">
           <p>
             {{ afis.nume }}: lungime {{ afis.lungime }}, latime
-            {{ afis.latime }}
+            {{ afis.latime }} {{ afis.bucati ? `(${afis.bucati} Buc)` : "" }}
           </p>
         </div>
       </div>
@@ -74,11 +75,13 @@ const rezultate = ref([
     nume: "Dimensiune Legatura 1",
     lungime: 764,
     latime: 100,
+    bucati: 2,
   },
   {
     nume: "Dimensiune Legatura 2",
     lungime: 282,
-    latime: 495,
+    latime: 100,
+    bucati: 2,
   },
   {
     nume: "Dimensiune Spate",
@@ -91,14 +94,15 @@ const rezultate = ref([
     latime: 795,
   },
   {
-    nume: "Polita 1",
+    nume: "Dimensiuni Usi",
     lungime: 741,
-    latime: 795,
+    latime: 279,
+    bucati: 2,
   },
   {
-    nume: "Polita 1",
-    lungime: 741,
-    latime: 795,
+    nume: "Polita 2",
+    lungime: 282,
+    latime: 480,
   },
 ]);
 

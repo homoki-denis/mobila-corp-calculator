@@ -32,7 +32,7 @@
         <p class="text-gray-700">
           Dimensiuni laterale: lungime
           {{ rez.dimensiuneLaterala.lungime }}, latime
-          {{ rez.dimensiuneLaterala.latime }}
+          {{ rez.dimensiuneLaterala.latime }} (2 buc)
           <br />
           Dimensiuni Piese de legătură: lungime
           {{ rez.dimensiunePieseLegatura.lungime }}, latime

@@ -35,7 +35,7 @@
         v-for="(rez, i) in rezultate"
       >
         Laterale dulap: lungime {{ rez.lateraleDulap.lungime }}, latime
-        {{ rez.lateraleDulap.latime }}<br />
+        {{ rez.lateraleDulap.latime }} (2 Buc)<br />
         Fund și capac 1: lungime
         {{ rez.fundCapac1.lungime }}, latime {{ rez.fundCapac1.latime }}<br />
         Fund și capac 2: lungime {{ rez.fundCapac2.lungime }}, latime
