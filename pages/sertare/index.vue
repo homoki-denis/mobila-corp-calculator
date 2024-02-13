@@ -3,11 +3,11 @@
     <div
       class="z-50 gap-2 flex justify-center items-center flex-wrap flex-col md:flex-row"
     >
-      <NuxtLink to="/">
+      <NuxtLink to="sertare/sertare-gtv">
         <button
-          class="bg-red-600 hover:bg-red-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
         >
-          Sertar haffele
+          Sertare GTV
         </button>
       </NuxtLink>
 
@@ -15,7 +15,7 @@
         <button
           class="bg-red-600 hover:bg-red-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
         >
-          Sertar blum
+          Sertare blum
         </button>
       </NuxtLink>
     </div>
