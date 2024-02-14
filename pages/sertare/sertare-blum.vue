@@ -12,7 +12,7 @@
           <input
             v-model="lungimeFund"
             class="w-full px-3 py-2 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-            id="dimensiuneFund"
+            id="lungimeFund"
             type="number"
             placeholder="Lungime fund"
           />
@@ -21,9 +21,9 @@
             >Adancime corp</label
           >
           <input
-            v-model="nrSertare"
+            v-model="adancimeCorp"
             class="w-full px-3 py-2 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-            id="dimensiuneFund"
+            id="adancimeCorp"
             type="number"
             placeholder="Adancime corp"
           />
@@ -64,13 +64,12 @@ import { ref } from "vue";
 
 const adancimeCorp = ref(0);
 const lungimeFund = ref(0);
-const nrSertare = ref(0);
 const rezultate = ref([]);
 
 const calculeazaDimensiuni = (e) => {
   e.preventDefault();
 
-  const generareDimensiuni = (lungimeFund, adancimeCorp) => {
+  const generareDimensiuni = (adancimeCorp, lungimeFund) => {
     let dimensiuni = [];
     let feteSertare = [];
 
@@ -138,4 +137,6 @@ const calculeazaDimensiuni = (e) => {
     generareDimensiuni(adancimeCorp.value, lungimeFund.value)
   );
 };
+
+console.log(rezultate);
 </script>
