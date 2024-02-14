@@ -81,7 +81,7 @@ const calculeazaDimensiuni = (e) => {
     };
 
     const b = {
-      lungime: lungimeFund - 100,
+      lungime: lungimeFund - 99,
       latime: 105,
       bucati: 2,
     };
@@ -93,7 +93,7 @@ const calculeazaDimensiuni = (e) => {
     };
 
     const b2 = {
-      lungime: lungimeFund - 100,
+      lungime: lungimeFund - 99,
       latime: 150,
       bucati: 2,
     };
@@ -105,7 +105,7 @@ const calculeazaDimensiuni = (e) => {
     };
 
     const b3 = {
-      lungime: lungimeFund - 100,
+      lungime: lungimeFund - 99,
       latime: 230,
       bucati: 2,
     };
@@ -117,7 +117,7 @@ const calculeazaDimensiuni = (e) => {
     };
 
     const b4 = {
-      lungime: lungimeFund - 100,
+      lungime: lungimeFund - 99,
       latime: 105,
       bucati: 8,
     };
@@ -151,6 +151,7 @@ const calculeazaDimensiuni = (e) => {
       dimensiuni = [a4, b4];
       feteSertare = [feteSertar4];
     }
+
     return {
       dimensiuni,
       feteSertare,
@@ -158,6 +159,5 @@ const calculeazaDimensiuni = (e) => {
   };
 
   rezultate.value.push(generareDimensiuni(lungimeFund.value, nrSertare.value));
-  console.log(rezultate);
 };
 </script>

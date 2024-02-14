@@ -115,7 +115,5 @@ const calculeazaDimensiuni = (e) => {
   rezultate.value.push(
     generareDimensiuniCorpSus(inaltimeCorp.value, nrPolita.value)
   );
-
-  console.log(rezultate);
 };
 </script>
