@@ -85,6 +85,9 @@
 
 <script setup>
 import { ref } from "vue";
+import { useDulapuriStore } from "@/store/dulapuri";
+
+const dulapuriStore = useDulapuriStore();
 
 const adancimeDulap = ref(0);
 const lungimeDulap = ref(0);
@@ -152,5 +155,13 @@ const calculeazaDimensiuni = (e) => {
       numarPoliteDulap.value
     )
   );
+  const valoriDulapuri = generareDimensiuni(
+    lungimeDulap.value,
+    adancimeDulap.value,
+    inaltimeDulap.value,
+    numarPoliteDulap.value
+  );
+
+  dulapuriStore.addRezultat(valoriDulapuri);
 };
 </script>

@@ -53,3 +53,18 @@
     </div>
   </div>
 </template>
+
+<script setup>
+const dulapuriStore = useDulapuriStore();
+const bucatarieCorpParteSusStore = useBucatarieCorpParteSus();
+const bucatarieCorpParteJosStore = useBucatarieCorpParteJos();
+console.log("dulapuri: ", dulapuriStore.valoriDulapuri);
+console.log(
+  "bucatarie corp parte sus: ",
+  bucatarieCorpParteSusStore.valoriBucatarieCorpParteSus
+);
+console.log(
+  "bucatarie corp parte jos: ",
+  bucatarieCorpParteJosStore.valoriBucatarieCorpParteJos
+);
+</script>

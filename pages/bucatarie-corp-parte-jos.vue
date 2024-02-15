@@ -53,10 +53,21 @@
 
 <script setup>
 import { ref } from "vue";
+import { useBucatarieCorpParteJos } from "@/store/bucatarie-corp-parte-jos";
+
+const bucatarieCorpParteJosStore = useBucatarieCorpParteJos();
+let valoriBucatarieCorpParteJos;
 
 const dimensiuneFund = ref(0);
 const rezultate = ref([]);
 const rezultateUsiJos = [];
+
+let dimensiuneLaterala;
+let dimensiunePieseLegatura;
+let dimensiunePFL;
+let dimensiunePolita;
+let bucatiUsi;
+
 
 // Corp partea de jos
 const calculeazaDimensiuni = (e) => {
@@ -118,7 +129,11 @@ const calculeazaDimensiuni = (e) => {
       bucatiUsi: bucatiUsi
     };
   };
-  rezultate.value.push(generareDimensiuni(dimensiuneFund.value));
 
+  valoriBucatarieCorpParteJos = generareDimensiuni(dimensiuneFund.value);
+
+  rezultate.value.push(valoriBucatarieCorpParteJos);
+
+bucatarieCorpParteJosStore.addRezultat(valoriBucatarieCorpParteJos);
 };
 </script>

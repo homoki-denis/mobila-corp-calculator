@@ -71,6 +71,10 @@
 
 <script setup>
 import { ref } from "vue";
+import { useBucatarieCorpParteSus } from "@/store/bucatarie-corp-parte-sus";
+
+const bucatarieCorpParteSusStore = useBucatarieCorpParteSus();
+let valoriBucatarieCorpParteSus;
 
 const lungimeCorpSus = ref(0);
 const inaltimeCorpSus = ref(0);
@@ -78,6 +82,12 @@ const nrPolita = ref(0);
 const initialNrPolita = ref(0);
 const rezultate = ref([]);
 const rezultateUsiSus = [];
+
+let dimensiuneLaterala;
+let dimensiunePFL;
+let dimensiunePolita;
+let dimensiuneFundCap;
+let bucati;
 
 const calculeazaDimensiuni = (e) => {
   const initialNrPolita = nrPolita.value;
@@ -130,8 +140,14 @@ const calculeazaDimensiuni = (e) => {
       bucati: bucati,
     };
   };
-  rezultate.value.push(
-    generareDimensiuni(lungimeCorpSus.value, inaltimeCorpSus.value)
+
+  valoriBucatarieCorpParteSus = generareDimensiuni(
+    lungimeCorpSus.value,
+    inaltimeCorpSus.value
   );
+
+  rezultate.value.push(valoriBucatarieCorpParteSus);
+
+  bucatarieCorpParteSusStore.addRezultat(valoriBucatarieCorpParteSus);
 };
 </script>
