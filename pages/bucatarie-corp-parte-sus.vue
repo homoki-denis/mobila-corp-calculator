@@ -83,12 +83,6 @@ const initialNrPolita = ref(0);
 const rezultate = ref([]);
 const rezultateUsiSus = [];
 
-let dimensiuneLaterala;
-let dimensiunePFL;
-let dimensiunePolita;
-let dimensiuneFundCap;
-let bucati;
-
 const calculeazaDimensiuni = (e) => {
   const initialNrPolita = nrPolita.value;
   e.preventDefault();

@@ -58,6 +58,8 @@
 const dulapuriStore = useDulapuriStore();
 const bucatarieCorpParteSusStore = useBucatarieCorpParteSus();
 const bucatarieCorpParteJosStore = useBucatarieCorpParteJos();
+const bucatarieCorpColtParteSusStore = useBucatarieCorpColtParteSus();
+
 console.log("dulapuri: ", dulapuriStore.valoriDulapuri);
 console.log(
   "bucatarie corp parte sus: ",
@@ -66,5 +68,9 @@ console.log(
 console.log(
   "bucatarie corp parte jos: ",
   bucatarieCorpParteJosStore.valoriBucatarieCorpParteJos
+);
+console.log(
+  "bucatarie corp colt parte sus: ",
+  bucatarieCorpColtParteSusStore.valoriBucatarieCorpColtParteSus
 );
 </script>

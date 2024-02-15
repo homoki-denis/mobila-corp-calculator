@@ -56,11 +56,14 @@
 
 <script setup>
 import { ref } from "vue";
+import { useBucatarieCorpColtParteSus } from "@/store/bucatarie-corp-colt-parte-sus";
+
+const bucatarieCorpColtParteSusStore = useBucatarieCorpColtParteSus();
+let valoriBucatarieCorpColtParteSus;
 
 const inaltimeCorp = ref(0);
 const rezultate = ref([]);
 const nrPolita = ref(0);
-const initialNrPolita = ref(0);
 
 const calculeazaDimensiuni = (e) => {
   e.preventDefault();
@@ -112,8 +115,11 @@ const calculeazaDimensiuni = (e) => {
       nrPolita: initialNrPolita,
     };
   };
-  rezultate.value.push(
-    generareDimensiuniCorpSus(inaltimeCorp.value, nrPolita.value)
-  );
+
+  valoriBucatarieCorpColtParteSus = generareDimensiuniCorpSus(inaltimeCorp);
+
+  rezultate.value.push(valoriBucatarieCorpColtParteSus);
+
+  bucatarieCorpColtParteSusStore.addRezultat(valoriBucatarieCorpColtParteSus);
 };
 </script>

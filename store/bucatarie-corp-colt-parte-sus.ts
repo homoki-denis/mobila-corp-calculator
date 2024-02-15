@@ -1,5 +1,5 @@
 export const useBucatarieCorpColtParteSus = defineStore(
-  "bucatarie-corp-parte-sus",
+  "bucatarie-corp-colt-parte-sus",
   () => {
     const valoriBucatarieCorpColtParteSus = ref([]);
 
