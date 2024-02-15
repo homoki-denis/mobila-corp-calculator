@@ -61,6 +61,10 @@
 
 <script setup>
 import { ref } from "vue";
+import { useSertareBlumStore } from "@/store/sertare-blum";
+
+const sertareGtvStore = useSertareBlumStore();
+let valoriSertareBlum;
 
 const adancimeCorp = ref(0);
 const lungimeFund = ref(0);
@@ -133,9 +137,11 @@ const calculeazaDimensiuni = (e) => {
     };
   };
 
-  rezultate.value.push(
-    generareDimensiuni(adancimeCorp.value, lungimeFund.value)
-  );
+  valoriSertareBlum = generareDimensiuni(adancimeCorp.value, lungimeFund.value);
+
+  rezultate.value.push(valoriSertareBlum);
+
+  sertareGtvStore.addRezultat(valoriSertareBlum);
 };
 
 console.log(rezultate);

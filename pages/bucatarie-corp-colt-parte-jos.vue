@@ -41,6 +41,10 @@
 
 <script setup>
 import { ref } from "vue";
+import { useBucatarieCorpColtParteJos } from "@/store/bucatarie-corp-colt-parte-jos";
+
+const bucatarieCorpColtParteJosStore = useBucatarieCorpColtParteJos();
+let valoriBucatarieCorpColtParteJos;
 
 const numarElemente = ref(0);
 const arrayRezultate = ref([]);
@@ -113,4 +117,6 @@ const afiseazaElemente = () => {
     arrayRezultate.value.push([...rezultate.value]);
   }
 };
+
+bucatarieCorpColtParteJosStore.addRezultat(arrayRezultate);
 </script>

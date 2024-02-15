@@ -59,6 +59,9 @@ const dulapuriStore = useDulapuriStore();
 const bucatarieCorpParteSusStore = useBucatarieCorpParteSus();
 const bucatarieCorpParteJosStore = useBucatarieCorpParteJos();
 const bucatarieCorpColtParteSusStore = useBucatarieCorpColtParteSus();
+const bucatarieCorpColtParteJosStore = useBucatarieCorpColtParteJos();
+const sertareGtvStore = useSertareGtvStore();
+const sertareBlumStore = useSertareBlumStore();
 
 console.log("dulapuri: ", dulapuriStore.valoriDulapuri);
 console.log(
@@ -73,4 +76,13 @@ console.log(
   "bucatarie corp colt parte sus: ",
   bucatarieCorpColtParteSusStore.valoriBucatarieCorpColtParteSus
 );
+
+console.log(
+  "bucatarie corp colt parte jos: ",
+  bucatarieCorpColtParteJosStore.valoriBucatarieCorpColtParteJos
+);
+
+console.log("sertare gtv: ", sertareGtvStore.valoriSertareGtv);
+
+console.log("sertare blum: ", sertareBlumStore.valoriSertareBlum);
 </script>

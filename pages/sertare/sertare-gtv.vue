@@ -61,6 +61,10 @@
 
 <script setup>
 import { ref } from "vue";
+import { useSertareGtvStore } from "@/store/sertare-gtv";
+
+const sertareGtvStore = useSertareGtvStore();
+let valoriSertareGtv;
 
 const lungimeFund = ref(0);
 const nrSertare = ref(0);
@@ -158,6 +162,10 @@ const calculeazaDimensiuni = (e) => {
     };
   };
 
-  rezultate.value.push(generareDimensiuni(lungimeFund.value, nrSertare.value));
+  valoriSertareGtv = generareDimensiuni(lungimeFund.value, nrSertare.value);
+
+  rezultate.value.push(valoriSertareGtv);
+
+  sertareGtvStore.addRezultat(valoriSertareGtv);
 };
 </script>
