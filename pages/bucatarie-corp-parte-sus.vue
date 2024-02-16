@@ -62,8 +62,8 @@
           {{ rez.dimensiuneFundCap.latime }}
         </p>
         <p class="font-bold">Dimensiuni usi sus</p>
-        lungime {{ rez.rezultateUsiSus[i].lungime }}, latime
-        {{ rez.rezultateUsiSus[i].latime }} ({{ rez.bucati }} Buc)
+        lungime {{ rez.rezultateUsiSus.lungime }}, latime
+        {{ rez.rezultateUsiSus.latime }} ({{ rez.bucati }} Buc)
       </div>
     </div>
   </div>
@@ -81,10 +81,10 @@ const inaltimeCorpSus = ref(0);
 const nrPolita = ref(0);
 const initialNrPolita = ref(0);
 const rezultate = ref([]);
-const rezultateUsiSus = [];
 
 const calculeazaDimensiuni = (e) => {
   const initialNrPolita = nrPolita.value;
+  let rezultateUsiSus;
   e.preventDefault();
   const generareDimensiuni = (lungimeCorpSus, inaltimeCorpSus) => {
     let latimeUsa;
@@ -97,7 +97,7 @@ const calculeazaDimensiuni = (e) => {
       bucati = 2;
     }
 
-    rezultateUsiSus.push({ lungime: inaltimeCorpSus, latime: latimeUsa });
+    rezultateUsiSus = { lungime: inaltimeCorpSus, latime: latimeUsa };
     // Calcularea dimensiunii laterale
     const dimensiuneLaterala = {
       lungime: inaltimeCorpSus,

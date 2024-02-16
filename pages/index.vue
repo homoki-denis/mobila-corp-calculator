@@ -62,6 +62,7 @@
 
 <script setup>
 import * as XLSX from "xlsx";
+
 const dulapuriStore = useDulapuriStore();
 const bucatarieCorpParteSusStore = useBucatarieCorpParteSus();
 const bucatarieCorpParteJosStore = useBucatarieCorpParteJos();
@@ -69,6 +70,17 @@ const bucatarieCorpColtParteSusStore = useBucatarieCorpColtParteSus();
 const bucatarieCorpColtParteJosStore = useBucatarieCorpColtParteJos();
 const sertareGtvStore = useSertareGtvStore();
 const sertareBlumStore = useSertareBlumStore();
+
+// const bucatarieSetUsiSus =
+//   bucatarieCorpParteSusStore.valoriBucatarieCorpParteSus.map((usi) => {
+//     return usi.rezultateUsiSus.map((u, i) => {
+//       for (let j = 0; j < u.length; j++) {
+//         console.log(`Index i: ${i}, Index j: ${j}, Lungime: ${u[j].lungime}`);
+//       }
+//     });
+//   });
+
+// console.log(bucatarieSetUsiSus);
 
 const descarcaFisier = () => {
   const dulapuri = dulapuriStore.valoriDulapuri.map((dulap) => ({
@@ -80,11 +92,26 @@ const descarcaFisier = () => {
     pflDulap: `lungime: ${dulap.pflDulap.lungime} inaltime: ${dulap.pflDulap.inaltime}`,
   }));
 
-  const worksheet = XLSX.utils.json_to_sheet(dulapuri);
+  const bucatarieCorpParteSus =
+    bucatarieCorpParteSusStore.valoriBucatarieCorpParteSus.map((buc) => ({
+      dimensiuneLaterala: `lungime: ${buc.dimensiuneLaterala.lungime} latime: ${buc.dimensiuneLaterala.latime}`,
+      dimensiunePFL: `lungime: ${buc.dimensiunePFL.lungime} latime: ${buc.dimensiunePFL.latime}`,
+      dimensiunePolita: `lungime: ${buc.dimensiunePolita.lungime} latime: ${buc.dimensiunePolita.latime}`,
+      dimensiuneFundCap: `lungime: ${buc.dimensiuneFundCap.lungime} latime: ${buc.dimensiuneFundCap.latime}`,
+      rezultateUsiSus: `lungime: ${buc.rezultateUsiSus.lungime} latime: ${buc.rezultateUsiSus.latime}`,
+      nrPolita: buc.nrPolita,
+      bucati: buc.bucati,
+    }));
 
-  const max_widths = dulapuri.reduce((acc, dulap) => {
-    Object.keys(dulap).forEach((prop) => {
-      acc[prop] = Math.max(acc[prop] || 0, dulap[prop].length);
+  console.log(bucatarieCorpParteSus);
+
+  const allData = [...dulapuri, ...bucatarieCorpParteSus];
+
+  const worksheet = XLSX.utils.json_to_sheet(allData);
+
+  const max_widths = allData.reduce((acc, data) => {
+    Object.keys(data).forEach((prop) => {
+      acc[prop] = Math.max(acc[prop] || 0, data[prop].length);
     });
     return acc;
   }, {});
@@ -99,14 +126,14 @@ const descarcaFisier = () => {
   XLSX.writeFile(workbook, "rezultate.xlsx", { compression: true });
 };
 
-console.log(
-  "dulapuri: ",
-  dulapuriStore.valoriDulapuri.map((obj) => obj)
-);
 // console.log(
-//   "bucatarie corp parte sus: ",
-//   bucatarieCorpParteSusStore.valoriBucatarieCorpParteSus
+//   "dulapuri: ",
+//   dulapuriStore.valoriDulapuri.map((obj) => obj)
 // );
+console.log(
+  "bucatarie corp parte sus: ",
+  bucatarieCorpParteSusStore.valoriBucatarieCorpParteSus
+);
 // console.log(
 //   "bucatarie corp parte jos: ",
 //   bucatarieCorpParteJosStore.valoriBucatarieCorpParteJos
