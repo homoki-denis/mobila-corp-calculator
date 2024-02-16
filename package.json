@@ -15,7 +15,8 @@
     "pinia": "^2.1.7",
     "sass": "^1.70.0",
     "vue": "^3.4.15",
-    "vue-router": "^4.2.5"
+    "vue-router": "^4.2.5",
+    "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.1/xlsx-0.20.1.tgz"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.17",
