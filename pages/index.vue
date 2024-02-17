@@ -102,17 +102,38 @@ const descarcaFisier = () => {
       bucatiUsi: `${buc.bucatiUsi} buc`,
     }));
 
-  console.log(bucatarieCorpParteSus);
+  const bucatarieCorpColtParteJos =
+    bucatarieCorpColtParteJosStore.valoriBucatarieCorpColtParteJos;
 
+  let bucatarieCorpColtParteJosObiect = Object.entries(
+    bucatarieCorpColtParteJos
+  ).map(([key, buc]) => ({
+    dimensiuneLaterala: `lungime: ${buc.value[key].dimensiuneLaterala.lungime}, latime: ${buc.value[key].dimensiuneLaterala.latime}`,
+    dimensiuneLaterala2: `lungime: ${buc.value[key].dimensiuneLaterala2.lungime}, latime: ${buc.value[key].dimensiuneLaterala2.latime}`,
+    dimensiuneFund: `lungime: ${buc.value[key].dimensiuneFund.lungime}, latime: ${buc.value[key].dimensiuneFund.latime}`,
+    dimensiuneFund2: `lungime: ${buc.value[key].dimensiuneFund2.lungime}, latime: ${buc.value[key].dimensiuneFund2.latime}`,
+    dimensiunePolita: `lungime: ${buc.value[key].dimensiunePolita.lungime}, latime: ${buc.value[key].dimensiunePolita.latime}`,
+    dimensiunePolita2: `lungime: ${buc.value[key].dimensiunePolita2.lungime}, latime: ${buc.value[key].dimensiunePolita2.latime}`,
+    dimensiuneLegatura1: `lungime: ${buc.value[key].dimensiuneLegatura1.lungime}, latime: ${buc.value[key].dimensiuneLegatura1.latime}`,
+    dimensiuneLegatura2: `lungime: ${buc.value[key].dimensiuneLegatura2.lungime}, latime: ${buc.value[key].dimensiuneLegatura2.latime}`,
+    dimensiuneSpate: `lungime: ${buc.value[key].dimensiuneSpate.lungime}, latime: ${buc.value[key].dimensiuneSpate.latime}`,
+    dimensiunePFL: `lungime: ${buc.value[key].dimensiunePFL.lungime}, latime: ${buc.value[key].dimensiunePFL.latime}`,
+    dimensiuniUsi: `lungime: ${buc.value[key].dimensiuniUsi.lungime}, latime: ${buc.value[key].dimensiuniUsi.latime}, buc: ${buc.value[key].dimensiuniUsi.bucati}`,
+  }));
+
+  console.log(bucatarieCorpColtParteJosObiect);
+
+  console.log(bucatarieCorpColtParteJosObiect);
   const allData = [
     ...bucatarieCorpParteJos,
     ...bucatarieCorpParteSus,
+    ...bucatarieCorpColtParteJosObiect,
     ...dulapuri,
   ];
 
   const worksheet = XLSX.utils.json_to_sheet(allData);
 
-  console.log(allData);
+  // console.log(allData);
 
   const max_widths = allData.reduce((acc, data) => {
     Object.keys(data).forEach((prop) => {
@@ -135,10 +156,10 @@ const descarcaFisier = () => {
 //   "dulapuri: ",
 //   dulapuriStore.valoriDulapuri.map((obj) => obj)
 // );
-console.log(
-  "bucatarie corp parte sus: ",
-  bucatarieCorpParteSusStore.valoriBucatarieCorpParteSus
-);
+// console.log(
+//   "bucatarie corp parte sus: ",
+//   bucatarieCorpParteSusStore.valoriBucatarieCorpParteSus
+// );
 // console.log(
 //   "bucatarie corp parte jos: ",
 //   bucatarieCorpParteJosStore.valoriBucatarieCorpParteJos

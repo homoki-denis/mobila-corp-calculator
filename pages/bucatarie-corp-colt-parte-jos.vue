@@ -5,8 +5,8 @@
         class="bg-white text-black p-4 md:p-8 rounded shadow-md w-full max-w-md"
       >
         <p class="text-md font-bold mb-2">Bucatarie corp colt jos</p>
-        <p v-for="rez in rezultate" class="text-gray-700">
-          {{ rez.nume }}: lungime {{ rez.lungime }}, latime {{ rez.latime }}
+        <p v-for="(rez, i) in rezultate" class="text-gray-700">
+          {{ i }}: lungime {{ rez.lungime }}, latime {{ rez.latime }}
           {{ rez.bucati ? `(${rez.bucati} Buc)` : "" }}
         </p>
         <div class="flex items-end">
@@ -28,10 +28,10 @@
         v-for="array in arrayRezultate"
         class="bg-white text-black px-8 py-8 rounded shadow-md w-full max-w-md"
       >
-        <div v-for="afis in array">
+        <div v-for="(afis, i) in array">
           <p>
-            {{ afis.nume }}: lungime {{ afis.lungime }}, latime
-            {{ afis.latime }} {{ afis.bucati ? `(${afis.bucati} Buc)` : "" }}
+            {{ i }}: lungime {{ afis.lungime }}, latime {{ afis.latime }}
+            {{ afis.bucati ? `(${afis.bucati} Buc)` : "" }}
           </p>
         </div>
       </div>
@@ -49,73 +49,62 @@ let valoriBucatarieCorpColtParteJos;
 const numarElemente = ref(0);
 const arrayRezultate = ref([]);
 
-const rezultate = ref([
-  {
-    nume: "Dimensiune Laterala",
+const rezultate = ref({
+  dimensiuneLaterala: {
     lungime: 728,
     latime: 500,
   },
-  {
-    nume: "Dimensiune Laterala 2",
+  dimensiuneLaterala2: {
     lungime: 728,
     latime: 500,
   },
-  {
-    nume: "Dimensiune Fund",
+  dimensiuneFund: {
     lungime: 800,
     latime: 500,
   },
-  {
-    nume: "Dimensiune Fund 2",
+  dimensiuneFund2: {
     lungime: 300,
     latime: 500,
   },
-  {
-    nume: "Dimensiune Polita",
+  dimensiunePolita: {
     lungime: 764,
     latime: 500,
   },
-  {
-    nume: "Dimensiune Legatura 1",
+  dimensiunePolita2: {
+    lungime: 282,
+    latime: 480,
+  },
+  dimensiuneLegatura1: {
     lungime: 764,
     latime: 100,
     bucati: 2,
   },
-  {
-    nume: "Dimensiune Legatura 2",
+  dimensiuneLegatura2: {
     lungime: 282,
     latime: 100,
     bucati: 2,
   },
-  {
-    nume: "Dimensiune Spate",
+  dimensiuneSpate: {
     lungime: 728,
     latime: 782,
   },
-  {
-    nume: "Dimensiune PFL",
+  dimensiunePFL: {
     lungime: 741,
     latime: 795,
   },
-  {
-    nume: "Dimensiuni Usi",
+  dimensiuniUsi: {
     lungime: 741,
     latime: 279,
     bucati: 2,
   },
-  {
-    nume: "Polita 2",
-    lungime: 282,
-    latime: 480,
-  },
-]);
+});
 
 const afiseazaElemente = () => {
-  arrayRezultate.value = [];
+  arrayRezultate.value = Array.from({ length: numarElemente.value }, () => ({
+    ...rezultate.value,
+  }));
 
-  for (let i = 0; i < numarElemente.value; i++) {
-    arrayRezultate.value.push([...rezultate.value]);
-  }
+  console.log(arrayRezultate);
 };
 
 bucatarieCorpColtParteJosStore.addRezultat(arrayRezultate);
