@@ -73,7 +73,7 @@ const sertareBlumStore = useSertareBlumStore();
 
 const descarcaFisier = () => {
   const dulapuri = dulapuriStore.valoriDulapuri.map((dulap) => ({
-    lateraleDulap1: `lungime: ${dulap.lateraleDulap1.lungime} latime: ${dulap.lateraleDulap1.latime}`,
+    "Laterale Dulap 1": `lungime: ${dulap.lateraleDulap1.lungime} latime: ${dulap.lateraleDulap1.latime}`,
     lateraleDulap2: `lungime: ${dulap.lateraleDulap2.lungime} latime: ${dulap.lateraleDulap2.latime}`,
     fundDulap: `lungime: ${dulap.fundDulap.lungime} latime: ${dulap.fundDulap.latime}`,
     capacDulap: `lungime: ${dulap.capacDulap.lungime} latime: ${dulap.capacDulap.latime}`,
@@ -121,13 +121,28 @@ const descarcaFisier = () => {
     dimensiuniUsi: `lungime: ${buc.value[key].dimensiuniUsi.lungime}, latime: ${buc.value[key].dimensiuniUsi.latime}, buc: ${buc.value[key].dimensiuniUsi.bucati}`,
   }));
 
-  console.log(bucatarieCorpColtParteJosObiect);
+  const bucatarieCorpColtParteSus =
+    bucatarieCorpColtParteSusStore.valoriBucatarieCorpColtParteSus.map(
+      (buc) => ({
+        lateraleDulap: `lungime: ${buc.lateraleDulap.lungime}, latime: ${buc.lateraleDulap.latime}`,
+        fundCapac1: `lungime: ${buc.fundCapac1.lungime}, latime: ${buc.fundCapac1.latime}`,
+        fundCapac2: `lungime: ${buc.fundCapac2.lungime}, latime: ${buc.fundCapac2.latime}`,
+        spatePal: `lungime: ${buc.spatePal.lungime}, latime: ${buc.spatePal.latime}`,
+        pfl: `inaltime: ${buc.pfl.inaltime}, lungime: ${buc.pfl.lungime}`,
+        corpColtSus: `lungime: ${buc.corpColtSus.lungime}, latime: ${buc.corpColtSus.latime}`,
+        polita: `lungime: ${buc.polita.lungime}, latime: ${buc.polita.latime}`,
+        nrPolita: `buc ${buc.nrPolita}`,
+      })
+    );
 
-  console.log(bucatarieCorpColtParteJosObiect);
+  console.log(bucatarieCorpColtParteSus);
+  console.log(bucatarieCorpParteJos);
+
   const allData = [
     ...bucatarieCorpParteJos,
     ...bucatarieCorpParteSus,
     ...bucatarieCorpColtParteJosObiect,
+    ...bucatarieCorpColtParteSus,
     ...dulapuri,
   ];
 
