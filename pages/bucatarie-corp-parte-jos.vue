@@ -43,7 +43,7 @@
           Dimensiuni Poliță: lungime {{ rez.dimensiunePolita.lungime }}, latime
           {{ rez.dimensiunePolita.latime }} <br>
           <p class="font-bold">Dimensiuni usi jos</p>
-          lungime {{ rez.dimensiuneUsiJos[i].lungime }}, latime {{ rez.dimensiuneUsiJos[i].latime }} (<span>{{ rez.bucatiUsi }} Buc</span>) 
+          lungime {{ rez.dimensiuneUsiJos.lungime }}, latime {{ rez.dimensiuneUsiJos.latime }} (<span>{{ rez.bucatiUsi }} Buc</span>) 
         
         </p>
       </div>
@@ -60,14 +60,7 @@ let valoriBucatarieCorpParteJos;
 
 const dimensiuneFund = ref(0);
 const rezultate = ref([]);
-const rezultateUsiJos = [];
-
-let dimensiuneLaterala;
-let dimensiunePieseLegatura;
-let dimensiunePFL;
-let dimensiunePolita;
-let bucatiUsi;
-
+let rezultateUsiJos = [];
 
 // Corp partea de jos
 const calculeazaDimensiuni = (e) => {
@@ -87,11 +80,11 @@ const calculeazaDimensiuni = (e) => {
     // Calcul latime / lungime usi
     if (dimensiuneFund > 450) {
       latimeUsa = (dimensiuneFund / 2) - 3 ;
-      rezultateUsiJos.push({ lungime: 741, latime: latimeUsa });
+      rezultateUsiJos = { lungime: 741, latime: latimeUsa };
       
     } else {
       latimeUsa = dimensiuneFund - 3 ;
-      rezultateUsiJos.push({ lungime: 741, latime: latimeUsa });
+      rezultateUsiJos = { lungime: 741, latime: latimeUsa };
       bucatiUsi = 1
     }
 

@@ -71,17 +71,6 @@ const bucatarieCorpColtParteJosStore = useBucatarieCorpColtParteJos();
 const sertareGtvStore = useSertareGtvStore();
 const sertareBlumStore = useSertareBlumStore();
 
-// const bucatarieSetUsiSus =
-//   bucatarieCorpParteSusStore.valoriBucatarieCorpParteSus.map((usi) => {
-//     return usi.rezultateUsiSus.map((u, i) => {
-//       for (let j = 0; j < u.length; j++) {
-//         console.log(`Index i: ${i}, Index j: ${j}, Lungime: ${u[j].lungime}`);
-//       }
-//     });
-//   });
-
-// console.log(bucatarieSetUsiSus);
-
 const descarcaFisier = () => {
   const dulapuri = dulapuriStore.valoriDulapuri.map((dulap) => ({
     lateraleDulap1: `lungime: ${dulap.lateraleDulap1.lungime} latime: ${dulap.lateraleDulap1.latime}`,
@@ -99,19 +88,35 @@ const descarcaFisier = () => {
       dimensiunePolita: `lungime: ${buc.dimensiunePolita.lungime} latime: ${buc.dimensiunePolita.latime}`,
       dimensiuneFundCap: `lungime: ${buc.dimensiuneFundCap.lungime} latime: ${buc.dimensiuneFundCap.latime}`,
       rezultateUsiSus: `lungime: ${buc.rezultateUsiSus.lungime} latime: ${buc.rezultateUsiSus.latime}`,
-      nrPolita: buc.nrPolita,
-      bucati: buc.bucati,
+      nrPolita: `${buc.nrPolita} buc`,
+      bucati: `${buc.bucati} buc`,
+    }));
+
+  const bucatarieCorpParteJos =
+    bucatarieCorpParteJosStore.valoriBucatarieCorpParteJos.map((buc) => ({
+      dimensiuneLaterala: `lungime: ${buc.dimensiuneLaterala.lungime} latime: ${buc.dimensiuneLaterala.latime}`,
+      dimensiunePieseLegatura: `lungime: ${buc.dimensiunePieseLegatura.lungime} latime: ${buc.dimensiunePieseLegatura.latime}`,
+      dimensiunePFL: `lungime: ${buc.dimensiunePFL.lungime} latime: ${buc.dimensiunePFL.latime}`,
+      dimensiunePolita: `lungime: ${buc.dimensiunePolita.lungime} latime: ${buc.dimensiunePolita.latime}`,
+      dimensiuneUsiJos: `lungime: ${buc.dimensiuneUsiJos.lungime} latime: ${buc.dimensiuneUsiJos.latime}`,
+      bucatiUsi: `${buc.bucatiUsi} buc`,
     }));
 
   console.log(bucatarieCorpParteSus);
 
-  const allData = [...dulapuri, ...bucatarieCorpParteSus];
+  const allData = [
+    ...bucatarieCorpParteJos,
+    ...bucatarieCorpParteSus,
+    ...dulapuri,
+  ];
 
   const worksheet = XLSX.utils.json_to_sheet(allData);
 
+  console.log(allData);
+
   const max_widths = allData.reduce((acc, data) => {
     Object.keys(data).forEach((prop) => {
-      acc[prop] = Math.max(acc[prop] || 0, data[prop].length);
+      acc[prop] = Math.max(acc[prop] || 0, data[prop].length + 6);
     });
     return acc;
   }, {});
