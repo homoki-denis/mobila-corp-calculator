@@ -135,14 +135,27 @@ const descarcaFisier = () => {
       })
     );
 
-  console.log(bucatarieCorpColtParteSus);
-  console.log(bucatarieCorpParteJos);
+  // sertare gtv dimensiuni
+  const sertareGtvDimensiuni = sertareGtvStore.valoriSertareGtv;
+  let toateDimensiunileSertareGtv = [];
+
+  for (let obiectSertar of sertareGtvDimensiuni) {
+    for (let dimensiune of obiectSertar.dimensiuni) {
+      const dimensiuneObiect = {
+        "Sertare GTV lungime": `lungime ${dimensiune.lungime}`,
+        "Sertare GTV latime": `latime ${dimensiune.latime}`,
+        "Sertare GTV buc": `buc ${dimensiune.bucati}`,
+      };
+      toateDimensiunileSertareGtv.push(dimensiuneObiect);
+    }
+  }
 
   const allData = [
     ...bucatarieCorpParteJos,
     ...bucatarieCorpParteSus,
     ...bucatarieCorpColtParteJosObiect,
     ...bucatarieCorpColtParteSus,
+    ...toateDimensiunileSertareGtv,
     ...dulapuri,
   ];
 
