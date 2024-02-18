@@ -73,7 +73,7 @@ const sertareBlumStore = useSertareBlumStore();
 
 const descarcaFisier = () => {
   const dulapuri = dulapuriStore.valoriDulapuri.map((dulap) => ({
-    "Laterale Dulap 1": `lungime: ${dulap.lateraleDulap1.lungime} latime: ${dulap.lateraleDulap1.latime}`,
+    lateraleDulap1: `lungime: ${dulap.lateraleDulap1.lungime} latime: ${dulap.lateraleDulap1.latime}`,
     lateraleDulap2: `lungime: ${dulap.lateraleDulap2.lungime} latime: ${dulap.lateraleDulap2.latime}`,
     fundDulap: `lungime: ${dulap.fundDulap.lungime} latime: ${dulap.fundDulap.latime}`,
     capacDulap: `lungime: ${dulap.capacDulap.lungime} latime: ${dulap.capacDulap.latime}`,
@@ -83,23 +83,23 @@ const descarcaFisier = () => {
 
   const bucatarieCorpParteSus =
     bucatarieCorpParteSusStore.valoriBucatarieCorpParteSus.map((buc) => ({
-      dimensiuneLaterala: `lungime: ${buc.dimensiuneLaterala.lungime} latime: ${buc.dimensiuneLaterala.latime}`,
-      dimensiunePFL: `lungime: ${buc.dimensiunePFL.lungime} latime: ${buc.dimensiunePFL.latime}`,
-      dimensiunePolita: `lungime: ${buc.dimensiunePolita.lungime} latime: ${buc.dimensiunePolita.latime}`,
-      dimensiuneFundCap: `lungime: ${buc.dimensiuneFundCap.lungime} latime: ${buc.dimensiuneFundCap.latime}`,
-      rezultateUsiSus: `lungime: ${buc.rezultateUsiSus.lungime} latime: ${buc.rezultateUsiSus.latime}`,
-      nrPolita: `${buc.nrPolita} buc`,
-      bucati: `${buc.bucati} buc`,
+      "dimensiuneLaterala corp sus": `lungime: ${buc.dimensiuneLaterala.lungime} latime: ${buc.dimensiuneLaterala.latime}`,
+      "dimensiunePFL corp sus": `lungime: ${buc.dimensiunePFL.lungime} latime: ${buc.dimensiunePFL.latime}`,
+      "dimensiunePolita corp sus": `lungime: ${buc.dimensiunePolita.lungime} latime: ${buc.dimensiunePolita.latime}`,
+      "dimensiuneFund Cap corp sus": `lungime: ${buc.dimensiuneFundCap.lungime} latime: ${buc.dimensiuneFundCap.latime}`,
+      "rezultateUsi Sus corp sus": `lungime: ${buc.rezultateUsiSus.lungime} latime: ${buc.rezultateUsiSus.latime}`,
+      "nrPolita corp sus": `${buc.nrPolita} buc`,
+      "bucati corp sus": `${buc.bucati} buc`,
     }));
 
   const bucatarieCorpParteJos =
     bucatarieCorpParteJosStore.valoriBucatarieCorpParteJos.map((buc) => ({
-      dimensiuneLaterala: `lungime: ${buc.dimensiuneLaterala.lungime} latime: ${buc.dimensiuneLaterala.latime}`,
-      dimensiunePieseLegatura: `lungime: ${buc.dimensiunePieseLegatura.lungime} latime: ${buc.dimensiunePieseLegatura.latime}`,
-      dimensiunePFL: `lungime: ${buc.dimensiunePFL.lungime} latime: ${buc.dimensiunePFL.latime}`,
-      dimensiunePolita: `lungime: ${buc.dimensiunePolita.lungime} latime: ${buc.dimensiunePolita.latime}`,
-      dimensiuneUsiJos: `lungime: ${buc.dimensiuneUsiJos.lungime} latime: ${buc.dimensiuneUsiJos.latime}`,
-      bucatiUsi: `${buc.bucatiUsi} buc`,
+      "dimensiuneLaterala corp jos": `lungime: ${buc.dimensiuneLaterala.lungime} latime: ${buc.dimensiuneLaterala.latime}`,
+      "dimensiunePiese Legatura corp jos": `lungime: ${buc.dimensiunePieseLegatura.lungime} latime: ${buc.dimensiunePieseLegatura.latime}`,
+      "dimensiunePFL corp jos": `lungime: ${buc.dimensiunePFL.lungime} latime: ${buc.dimensiunePFL.latime}`,
+      "dimensiunePolita corp jos": `lungime: ${buc.dimensiunePolita.lungime} latime: ${buc.dimensiunePolita.latime}`,
+      "dimensiuneUsi Jos corp jos": `lungime: ${buc.dimensiuneUsiJos.lungime} latime: ${buc.dimensiuneUsiJos.latime}`,
+      "bucatiUsi corp jos": `${buc.bucatiUsi} buc`,
     }));
 
   const bucatarieCorpColtParteJos =
@@ -108,30 +108,32 @@ const descarcaFisier = () => {
   let bucatarieCorpColtParteJosObiect = Object.entries(
     bucatarieCorpColtParteJos
   ).map(([key, buc]) => ({
-    dimensiuneLaterala: `lungime: ${buc.value[key].dimensiuneLaterala.lungime}, latime: ${buc.value[key].dimensiuneLaterala.latime}`,
-    dimensiuneLaterala2: `lungime: ${buc.value[key].dimensiuneLaterala2.lungime}, latime: ${buc.value[key].dimensiuneLaterala2.latime}`,
-    dimensiuneFund: `lungime: ${buc.value[key].dimensiuneFund.lungime}, latime: ${buc.value[key].dimensiuneFund.latime}`,
-    dimensiuneFund2: `lungime: ${buc.value[key].dimensiuneFund2.lungime}, latime: ${buc.value[key].dimensiuneFund2.latime}`,
-    dimensiunePolita: `lungime: ${buc.value[key].dimensiunePolita.lungime}, latime: ${buc.value[key].dimensiunePolita.latime}`,
-    dimensiunePolita2: `lungime: ${buc.value[key].dimensiunePolita2.lungime}, latime: ${buc.value[key].dimensiunePolita2.latime}`,
-    dimensiuneLegatura1: `lungime: ${buc.value[key].dimensiuneLegatura1.lungime}, latime: ${buc.value[key].dimensiuneLegatura1.latime}`,
-    dimensiuneLegatura2: `lungime: ${buc.value[key].dimensiuneLegatura2.lungime}, latime: ${buc.value[key].dimensiuneLegatura2.latime}`,
-    dimensiuneSpate: `lungime: ${buc.value[key].dimensiuneSpate.lungime}, latime: ${buc.value[key].dimensiuneSpate.latime}`,
-    dimensiunePFL: `lungime: ${buc.value[key].dimensiunePFL.lungime}, latime: ${buc.value[key].dimensiunePFL.latime}`,
-    dimensiuniUsi: `lungime: ${buc.value[key].dimensiuniUsi.lungime}, latime: ${buc.value[key].dimensiuniUsi.latime}, buc: ${buc.value[key].dimensiuniUsi.bucati}`,
+    "dimensiuneLaterala colt jos": buc.value[key]
+      ? `lungime: ${buc.value[key].dimensiuneLaterala.lungime}, latime: ${buc.value[key].dimensiuneLaterala.latime}`
+      : "N/A",
+    "dimensiuneLaterala2 colt jos": `lungime: ${buc.value[key].dimensiuneLaterala2.lungime}, latime: ${buc.value[key].dimensiuneLaterala2.latime}`,
+    "dimensiuneFund colt jos": `lungime: ${buc.value[key].dimensiuneFund.lungime}, latime: ${buc.value[key].dimensiuneFund.latime}`,
+    "dimensiuneFund2 colt jos": `lungime: ${buc.value[key].dimensiuneFund2.lungime}, latime: ${buc.value[key].dimensiuneFund2.latime}`,
+    "dimensiunePolita colt jos": `lungime: ${buc.value[key].dimensiunePolita.lungime}, latime: ${buc.value[key].dimensiunePolita.latime}`,
+    "dimensiunePolita2 colt jos": `lungime: ${buc.value[key].dimensiunePolita2.lungime}, latime: ${buc.value[key].dimensiunePolita2.latime}`,
+    "dimensiuneLegatura1 colt jos": `lungime: ${buc.value[key].dimensiuneLegatura1.lungime}, latime: ${buc.value[key].dimensiuneLegatura1.latime}`,
+    "dimensiuneLegatura2 colt jos": `lungime: ${buc.value[key].dimensiuneLegatura2.lungime}, latime: ${buc.value[key].dimensiuneLegatura2.latime}`,
+    "dimensiuneSpate colt jos": `lungime: ${buc.value[key].dimensiuneSpate.lungime}, latime: ${buc.value[key].dimensiuneSpate.latime}`,
+    "dimensiunePFL colt jos": `lungime: ${buc.value[key].dimensiunePFL.lungime}, latime: ${buc.value[key].dimensiunePFL.latime}`,
+    "dimensiuniUsi colt jos": `lungime: ${buc.value[key].dimensiuniUsi.lungime}, latime: ${buc.value[key].dimensiuniUsi.latime}, buc: ${buc.value[key].dimensiuniUsi.bucati}`,
   }));
 
   const bucatarieCorpColtParteSus =
     bucatarieCorpColtParteSusStore.valoriBucatarieCorpColtParteSus.map(
       (buc) => ({
-        lateraleDulap: `lungime: ${buc.lateraleDulap.lungime}, latime: ${buc.lateraleDulap.latime}`,
-        fundCapac1: `lungime: ${buc.fundCapac1.lungime}, latime: ${buc.fundCapac1.latime}`,
-        fundCapac2: `lungime: ${buc.fundCapac2.lungime}, latime: ${buc.fundCapac2.latime}`,
-        spatePal: `lungime: ${buc.spatePal.lungime}, latime: ${buc.spatePal.latime}`,
-        pfl: `inaltime: ${buc.pfl.inaltime}, lungime: ${buc.pfl.lungime}`,
-        corpColtSus: `lungime: ${buc.corpColtSus.lungime}, latime: ${buc.corpColtSus.latime}`,
-        polita: `lungime: ${buc.polita.lungime}, latime: ${buc.polita.latime}`,
-        nrPolita: `buc ${buc.nrPolita}`,
+        "lateraleDulap corp colt sus": `lungime: ${buc.lateraleDulap.lungime}, latime: ${buc.lateraleDulap.latime}`,
+        "fundCapac1 corp colt sus": `lungime: ${buc.fundCapac1.lungime}, latime: ${buc.fundCapac1.latime}`,
+        "fundCapac2 corp colt sus": `lungime: ${buc.fundCapac2.lungime}, latime: ${buc.fundCapac2.latime}`,
+        "spatePal corp colt sus": `lungime: ${buc.spatePal.lungime}, latime: ${buc.spatePal.latime}`,
+        "pfl corp colt sus": `inaltime: ${buc.pfl.inaltime}, lungime: ${buc.pfl.lungime}`,
+        "corpColtSus corp colt sus": `lungime: ${buc.corpColtSus.lungime}, latime: ${buc.corpColtSus.latime}`,
+        "polita corp colt sus": `lungime: ${buc.polita.lungime}, latime: ${buc.polita.latime}`,
+        "nrPolita corp colt sus": `buc ${buc.nrPolita}`,
       })
     );
 
@@ -142,9 +144,9 @@ const descarcaFisier = () => {
   for (let obiectSertar of sertareGtvDimensiuni) {
     for (let dimensiune of obiectSertar.dimensiuni) {
       const dimensiuneObiect = {
-        "Sertare GTV lungime": `lungime ${dimensiune.lungime}`,
-        "Sertare GTV latime": `latime ${dimensiune.latime}`,
-        "Sertare GTV buc": `buc ${dimensiune.bucati}`,
+        "DimensiuneGTV lungime": `lungime ${dimensiune.lungime}`,
+        "DimensiuneGTV latime": `latime ${dimensiune.latime}`,
+        "DimensiuneGTV buc": `buc ${dimensiune.bucati}`,
       };
       toateDimensiunileSertareGtv.push(dimensiuneObiect);
     }
@@ -157,9 +159,9 @@ const descarcaFisier = () => {
   for (let obiectSertar of sertareGtvFeteSertare) {
     for (let sertare of obiectSertar.feteSertare) {
       const dimensiuneObiect = {
-        "Fete sertare GTV lungime": `lungime ${sertare.lungime}`,
-        "Fete sertare GTV latime": `latime ${sertare.latime}`,
-        "Fete Sertare GTV buc": `buc ${sertare.bucati}`,
+        "FeteSertare GTV lungime": `lungime ${sertare.lungime}`,
+        "FeteSertare GTV latime": `latime ${sertare.latime}`,
+        "FeteSertare GTV buc": `buc ${sertare.bucati}`,
       };
       toateFeteSertareGtv.push(dimensiuneObiect);
     }
@@ -171,9 +173,9 @@ const descarcaFisier = () => {
   for (let obiectSertar of sertareBlumDimensiuni) {
     for (let dimensiuni of obiectSertar.dimensiuni) {
       const dimensiuneObiect = {
-        "Dimensiuni sertare blum lungime": `lungime ${dimensiuni.lungime}`,
-        "Dimensiuni sertare blum latime": `latime ${dimensiuni.latime}`,
-        "Dimensiuni Sertare blum buc": `buc ${dimensiuni.bucati}`,
+        "DimensiuneBlum lungime": `lungime ${dimensiuni.lungime}`,
+        "DimensiuneBlum latime": `latime ${dimensiuni.latime}`,
+        "DimensiuneBlum buc": `buc ${dimensiuni.bucati}`,
       };
       toateDimensiunileSertareBlum.push(dimensiuneObiect);
     }
@@ -185,9 +187,9 @@ const descarcaFisier = () => {
   for (let obiectSertar of sertareBlumFeteSertare) {
     for (let sertare of obiectSertar.feteSertare) {
       const dimensiuneObiect = {
-        "Fete sertare blum lungime": `lungime ${sertare.lungime}`,
-        "Fete sertare blum latime": `latime ${sertare.latime}`,
-        "Fete Sertare blum buc": `buc ${sertare.bucati}`,
+        "FeteSertare blum lungime": `lungime ${sertare.lungime}`,
+        "FeteSertare blum latime": `latime ${sertare.latime}`,
+        "FeteSertare blum buc": `buc ${sertare.bucati}`,
       };
       toateFeteSertareBlum.push(dimensiuneObiect);
     }
