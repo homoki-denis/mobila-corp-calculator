@@ -72,14 +72,48 @@ const sertareGtvStore = useSertareGtvStore();
 const sertareBlumStore = useSertareBlumStore();
 
 const descarcaFisier = () => {
-  const dulapuri = dulapuriStore.valoriDulapuri.map((dulap) => ({
-    lateraleDulap1: `lungime: ${dulap.lateraleDulap1.lungime} latime: ${dulap.lateraleDulap1.latime}`,
-    lateraleDulap2: `lungime: ${dulap.lateraleDulap2.lungime} latime: ${dulap.lateraleDulap2.latime}`,
-    fundDulap: `lungime: ${dulap.fundDulap.lungime} latime: ${dulap.fundDulap.latime}`,
-    capacDulap: `lungime: ${dulap.capacDulap.lungime} latime: ${dulap.capacDulap.latime}`,
-    politaDulap: `lungime: ${dulap.politaDulap.lungime} latime: ${dulap.politaDulap.latime} polite: ${dulap.politaDulap.polite}`,
-    pflDulap: `lungime: ${dulap.pflDulap.lungime} inaltime: ${dulap.pflDulap.inaltime}`,
-  }));
+  // const dulapuri = dulapuriStore.valoriDulapuri.map((dulap) => ({
+  //   lateraleDulap1: `lungime: ${dulap.lateraleDulap1.lungime} latime: ${dulap.lateraleDulap1.latime}`,
+  //   lateraleDulap2: `lungime: ${dulap.lateraleDulap2.lungime} latime: ${dulap.lateraleDulap2.latime}`,
+  //   fundDulap: `lungime: ${dulap.fundDulap.lungime} latime: ${dulap.fundDulap.latime}`,
+  //   capacDulap: `lungime: ${dulap.capacDulap.lungime} latime: ${dulap.capacDulap.latime}`,
+  //   politaDulap: `lungime: ${dulap.politaDulap.lungime} latime: ${dulap.politaDulap.latime} polite: ${dulap.politaDulap.polite}`,
+  //   pflDulap: `lungime: ${dulap.pflDulap.lungime} inaltime: ${dulap.pflDulap.inaltime}`,
+  // }));
+
+  //header: ["Denumire Piesa", "Nr. Bucati", "Lungime", "Latime"],
+  const dulapuri = dulapuriStore.valoriDulapuri.flatMap((dulap) => [
+    {
+      "Denumire Piesa": "Laterale Dulap 1",
+      Lungime: dulap.lateraleDulap1.lungime,
+      Latime: dulap.lateraleDulap1.latime,
+    },
+    {
+      "Denumire Piesa": "Laterale Dulap 2",
+      Lungime: dulap.lateraleDulap2.lungime,
+      Latime: dulap.lateraleDulap2.latime,
+    },
+    {
+      "Denumire Piesa": "Fund Dulap",
+      Lungime: dulap.fundDulap.lungime,
+      Latime: dulap.fundDulap.latime,
+    },
+    {
+      "Denumire Piesa": "Capac Dulap",
+      Lungime: dulap.capacDulap.lungime,
+    },
+    {
+      "Denumire Piesa": "Polita Dulap",
+      Lungime: dulap.politaDulap.lungime,
+      Latime: dulap.politaDulap.latime,
+      "Nr. Bucati": dulap.politaDulap.polite,
+    },
+    {
+      "Denumire Piesa": "PFL Dulap",
+      Latime: dulap.pflDulap.inaltime,
+      Lungime: dulap.pflDulap.lungime,
+    },
+  ]);
 
   const bucatarieCorpParteSus =
     bucatarieCorpParteSusStore.valoriBucatarieCorpParteSus.map((buc) => ({
@@ -152,7 +186,7 @@ const descarcaFisier = () => {
     }
   }
 
-  // sertare fete sertare
+  // sertare gtv fete sertare
   const sertareGtvFeteSertare = sertareGtvStore.valoriSertareGtv;
   let toateFeteSertareGtv = [];
 
@@ -167,6 +201,7 @@ const descarcaFisier = () => {
     }
   }
 
+  // sertare blum dimensiuni
   const sertareBlumDimensiuni = sertareBlumStore.valoriSertareBlum;
   let toateDimensiunileSertareBlum = [];
 
@@ -180,7 +215,7 @@ const descarcaFisier = () => {
       toateDimensiunileSertareBlum.push(dimensiuneObiect);
     }
   }
-
+  // sertare blum fete
   const sertareBlumFeteSertare = sertareBlumStore.valoriSertareBlum;
   let toateFeteSertareBlum = [];
 
@@ -207,18 +242,10 @@ const descarcaFisier = () => {
     ...dulapuri,
   ];
 
-  const worksheet = XLSX.utils.json_to_sheet(allData);
-
-  const max_widths = allData.reduce((acc, data) => {
-    Object.keys(data).forEach((prop) => {
-      acc[prop] = Math.max(acc[prop] || 0, data[prop].length + 6);
-    });
-    return acc;
-  }, {});
-
-  worksheet["!cols"] = Object.keys(max_widths).map((prop) => ({
-    wch: max_widths[prop],
-  }));
+  //Excel
+  const worksheet = XLSX.utils.json_to_sheet(allData, {
+    header: ["Denumire Piesa", "Nr. Bucati", "Lungime", "Latime"],
+  });
 
   const workbook = XLSX.utils.book_new();
 
