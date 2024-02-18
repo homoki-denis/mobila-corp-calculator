@@ -103,8 +103,6 @@ const afiseazaElemente = () => {
   arrayRezultate.value = Array.from({ length: numarElemente.value }, () => ({
     ...rezultate.value,
   }));
-
-  console.log(arrayRezultate);
 };
 
 bucatarieCorpColtParteJosStore.addRezultat(arrayRezultate);

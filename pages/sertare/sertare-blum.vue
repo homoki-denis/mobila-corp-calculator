@@ -143,6 +143,4 @@ const calculeazaDimensiuni = (e) => {
 
   sertareGtvStore.addRezultat(valoriSertareBlum);
 };
-
-console.log(rezultate);
 </script>

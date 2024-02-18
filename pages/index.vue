@@ -150,6 +150,7 @@ const descarcaFisier = () => {
     }
   }
 
+  // sertare fete sertare
   const sertareGtvFeteSertare = sertareGtvStore.valoriSertareGtv;
   let toateFeteSertareGtv = [];
 
@@ -164,19 +165,47 @@ const descarcaFisier = () => {
     }
   }
 
+  const sertareBlumDimensiuni = sertareBlumStore.valoriSertareBlum;
+  let toateDimensiunileSertareBlum = [];
+
+  for (let obiectSertar of sertareBlumDimensiuni) {
+    for (let dimensiuni of obiectSertar.dimensiuni) {
+      const dimensiuneObiect = {
+        "Dimensiuni sertare blum lungime": `lungime ${dimensiuni.lungime}`,
+        "Dimensiuni sertare blum latime": `latime ${dimensiuni.latime}`,
+        "Dimensiuni Sertare blum buc": `buc ${dimensiuni.bucati}`,
+      };
+      toateDimensiunileSertareBlum.push(dimensiuneObiect);
+    }
+  }
+
+  const sertareBlumFeteSertare = sertareBlumStore.valoriSertareBlum;
+  let toateFeteSertareBlum = [];
+
+  for (let obiectSertar of sertareBlumFeteSertare) {
+    for (let sertare of obiectSertar.feteSertare) {
+      const dimensiuneObiect = {
+        "Fete sertare blum lungime": `lungime ${sertare.lungime}`,
+        "Fete sertare blum latime": `latime ${sertare.latime}`,
+        "Fete Sertare blum buc": `buc ${sertare.bucati}`,
+      };
+      toateFeteSertareBlum.push(dimensiuneObiect);
+    }
+  }
+
   const allData = [
     ...bucatarieCorpParteJos,
     ...bucatarieCorpParteSus,
-    ...bucatarieCorpColtParteJosObiect,
-    ...bucatarieCorpColtParteSus,
     ...toateDimensiunileSertareGtv,
     ...toateFeteSertareGtv,
+    ...toateDimensiunileSertareBlum,
+    ...toateFeteSertareBlum,
+    ...bucatarieCorpColtParteJosObiect,
+    ...bucatarieCorpColtParteSus,
     ...dulapuri,
   ];
 
   const worksheet = XLSX.utils.json_to_sheet(allData);
-
-  // console.log(allData);
 
   const max_widths = allData.reduce((acc, data) => {
     Object.keys(data).forEach((prop) => {
@@ -194,30 +223,4 @@ const descarcaFisier = () => {
   XLSX.utils.book_append_sheet(workbook, worksheet);
   XLSX.writeFile(workbook, "rezultate.xlsx", { compression: true });
 };
-
-// console.log(
-//   "dulapuri: ",
-//   dulapuriStore.valoriDulapuri.map((obj) => obj)
-// );
-// console.log(
-//   "bucatarie corp parte sus: ",
-//   bucatarieCorpParteSusStore.valoriBucatarieCorpParteSus
-// );
-// console.log(
-//   "bucatarie corp parte jos: ",
-//   bucatarieCorpParteJosStore.valoriBucatarieCorpParteJos
-// );
-// console.log(
-//   "bucatarie corp colt parte sus: ",
-//   bucatarieCorpColtParteSusStore.valoriBucatarieCorpColtParteSus
-// );
-
-// console.log(
-//   "bucatarie corp colt parte jos: ",
-//   bucatarieCorpColtParteJosStore.valoriBucatarieCorpColtParteJos
-// );
-
-// console.log("sertare gtv: ", sertareGtvStore.valoriSertareGtv);
-
-// console.log("sertare blum: ", sertareBlumStore.valoriSertareBlum);
 </script>
