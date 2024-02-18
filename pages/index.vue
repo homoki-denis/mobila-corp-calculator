@@ -150,12 +150,27 @@ const descarcaFisier = () => {
     }
   }
 
+  const sertareGtvFeteSertare = sertareGtvStore.valoriSertareGtv;
+  let toateFeteSertareGtv = [];
+
+  for (let obiectSertar of sertareGtvFeteSertare) {
+    for (let sertare of obiectSertar.feteSertare) {
+      const dimensiuneObiect = {
+        "Fete sertare GTV lungime": `lungime ${sertare.lungime}`,
+        "Fete sertare GTV latime": `latime ${sertare.latime}`,
+        "Fete Sertare GTV buc": `buc ${sertare.bucati}`,
+      };
+      toateFeteSertareGtv.push(dimensiuneObiect);
+    }
+  }
+
   const allData = [
     ...bucatarieCorpParteJos,
     ...bucatarieCorpParteSus,
     ...bucatarieCorpColtParteJosObiect,
     ...bucatarieCorpColtParteSus,
     ...toateDimensiunileSertareGtv,
+    ...toateFeteSertareGtv,
     ...dulapuri,
   ];
 
