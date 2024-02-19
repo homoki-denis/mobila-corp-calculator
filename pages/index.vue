@@ -300,6 +300,13 @@ const descarcaFisier = () => {
     header: ["Denumire Piesa", "Nr. Bucati", "Lungime", "Latime"],
   });
 
+  worksheet["!cols"] = [
+    { width: 30 },
+    { width: 10 },
+    { width: 10 },
+    { width: 10 },
+  ];
+
   const workbook = XLSX.utils.book_new();
 
   XLSX.utils.book_append_sheet(workbook, worksheet);
