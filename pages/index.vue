@@ -147,24 +147,9 @@ const descarcaFisier = () => {
         "Denumire Piesa": "Rezultate Usi Sus corp sus",
         Lungime: buc.rezultateUsiSus.lungime,
         Latime: buc.rezultateUsiSus.latime,
-        "Nr. Bucati": buc.rezultateUsiSus.bucati,
-      },
-      {
-        "Denumire Piesa": "Nr. Polita corp sus",
-        "Nr. Bucati": buc.nrPolita,
-      },
-      {
-        "Denumire Piesa": "Bucati corp sus",
         "Nr. Bucati": buc.bucati,
       },
     ]);
-
-  // {
-  //   "Denumire Piesa": "Laterale Dulap 1",
-  //   Lungime: dulap.lateraleDulap1.lungime,
-  //   Latime: dulap.lateraleDulap1.latime,
-  //   "Nr. Bucati": dulap.lateraleDulap1.bucati,
-  // },
 
   const bucatarieCorpParteJos =
     bucatarieCorpParteJosStore.valoriBucatarieCorpParteJos.map((buc) => ({

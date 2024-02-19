@@ -97,23 +97,30 @@ const calculeazaDimensiuni = (e) => {
       bucati = 2;
     }
 
-    rezultateUsiSus = { lungime: inaltimeCorpSus, latime: latimeUsa };
+    rezultateUsiSus = {
+      lungime: inaltimeCorpSus,
+      latime: latimeUsa,
+      bucati: bucati,
+    };
     // Calcularea dimensiunii laterale
     const dimensiuneLaterala = {
       lungime: inaltimeCorpSus,
       latime: 300,
+      bucati: 1,
     };
 
     // Calcularea dimensiunii PFL
     const dimensiunePFL = {
       lungime: lungimeCorpSus - 5,
       latime: inaltimeCorpSus - 5,
+      bucati: 1,
     };
 
     // Calcularea dimensiunii Poliță
     const dimensiunePolita = {
       lungime: lungimeCorpSus - 36,
       latime: 295,
+      bucati: initialNrPolita,
     };
 
     // Calcularea dimensiunilor fundului și capacului
@@ -121,6 +128,7 @@ const calculeazaDimensiuni = (e) => {
     const dimensiuneFundCap = {
       lungime: latimeFundCap,
       latime: 300,
+      bucati: 1,
     };
 
     // Returnarea rezultatelor sub formă de obiect
