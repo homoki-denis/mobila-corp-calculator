@@ -185,7 +185,7 @@ const descarcaFisier = () => {
       },
       {
         "Denumire Piesa": "Bucati Usi corp jos",
-        "Nr. Bucati": `${buc.bucatiUsi} buc`,
+        "Nr. Bucati": `${buc.dimensiuneUsiJos.bucatiUsi}`,
       },
     ]);
 

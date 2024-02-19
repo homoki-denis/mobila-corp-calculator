@@ -43,7 +43,7 @@
           Dimensiuni Poliță: lungime {{ rez.dimensiunePolita.lungime }}, latime
           {{ rez.dimensiunePolita.latime }} <br>
           <p class="font-bold">Dimensiuni usi jos</p>
-          lungime {{ rez.dimensiuneUsiJos.lungime }}, latime {{ rez.dimensiuneUsiJos.latime }} (<span>{{ rez.bucatiUsi }} Buc</span>) 
+          lungime {{ rez.dimensiuneUsiJos.lungime }}, latime {{ rez.dimensiuneUsiJos.latime }} (<span>{{ rez.dimensiuneUsiJos.bucatiUsi }} Buc</span>) 
         
         </p>
       </div>
@@ -69,47 +69,43 @@ const calculeazaDimensiuni = (e) => {
     let latimeUsa;
     let bucatiUsi;
 
-    // Calcul bucati usi
-    if (dimensiuneFund > 450) {
-      bucatiUsi = 2
-    }
-    else if(dimensiuneFund === 450) {
-      bucatiUsi = 1
-    }
-
     // Calcul latime / lungime usi
     if (dimensiuneFund > 450) {
       latimeUsa = (dimensiuneFund / 2) - 3 ;
-      rezultateUsiJos = { lungime: 741, latime: latimeUsa };
+      rezultateUsiJos = { lungime: 741, latime: latimeUsa, bucatiUsi: 2 };
       
     } else {
       latimeUsa = dimensiuneFund - 3 ;
-      rezultateUsiJos = { lungime: 741, latime: latimeUsa };
-      bucatiUsi = 1
+      rezultateUsiJos = { lungime: 741, latime: latimeUsa, bucatiUsi: 1 };
+    
     }
 
     // Calcularea dimensiunii laterale
     const dimensiuneLaterala = {
       lungime: 728,
       latime: 500,
+      bucati: 1
     };
 
     // Calcularea dimensiunii Piese de legătură
     const dimensiunePieseLegatura = {
       lungime: dimensiuneFund - 36,
       latime: 100,
+      bucati: 1
     };
 
     // Calcularea dimensiunii PFL
     const dimensiunePFL = {
       lungime: 728 + 18 - 5,
       latime: dimensiuneFund - 5,
+      bucati: 1
     };
 
     // Calcularea dimensiunii Poliță
     const dimensiunePolita = {
       lungime: dimensiuneFund - 36,
       latime: 500 - 5,
+      bucati: 1
     };
 
     // Returnarea rezultatelor sub formă de obiect
