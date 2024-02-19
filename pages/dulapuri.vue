@@ -151,14 +151,14 @@ const calculeazaDimensiuni = (e) => {
 
     if (fundDulap.lungime > 450) {
       usiDulap = {
-        lungime: fundDulap.lungime - 100,
-        latime: fundDulap.latime / 2 - 3,
+        lungime: inaltimeDulap - 100,
+        latime: lungimeDulap / 2 - 3,
         bucati: 2,
       };
     } else {
       usiDulap = {
-        lungime: fundDulap.lungime - 100,
-        latime: fundDulap.latime - 3,
+        lungime: inaltimeDulap - 100,
+        latime: lungimeDulap - 3,
         bucati: 1,
       };
     }
