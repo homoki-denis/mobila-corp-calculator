@@ -77,21 +77,25 @@ const descarcaFisier = () => {
       "Denumire Piesa": "Laterale Dulap 1",
       Lungime: dulap.lateraleDulap1.lungime,
       Latime: dulap.lateraleDulap1.latime,
+      "Nr. Bucati": dulap.lateraleDulap1.bucati,
     },
     {
       "Denumire Piesa": "Laterale Dulap 2",
       Lungime: dulap.lateraleDulap2.lungime,
       Latime: dulap.lateraleDulap2.latime,
+      "Nr. Bucati": dulap.lateraleDulap2.bucati,
     },
     {
       "Denumire Piesa": "Fund Dulap",
       Lungime: dulap.fundDulap.lungime,
       Latime: dulap.fundDulap.latime,
+      "Nr. Bucati": dulap.fundDulap.bucati,
     },
     {
       "Denumire Piesa": "Capac Dulap",
       Lungime: dulap.capacDulap.lungime,
       Latime: dulap.capacDulap.latime,
+      "Nr. Bucati": dulap.capacDulap.bucati,
     },
     {
       "Denumire Piesa": "Polita Dulap",
@@ -103,11 +107,13 @@ const descarcaFisier = () => {
       "Denumire Piesa": "PFL Dulap",
       Latime: dulap.pflDulap.inaltime,
       Lungime: dulap.pflDulap.lungime,
+      "Nr. Bucati": dulap.pflDulap.bucati,
     },
     {
       "Denumire Piesa": "Usi Dulap",
       Latime: dulap.usiDulap.latime,
       Lungime: dulap.usiDulap.lungime,
+      "Nr. Bucati": dulap.usiDulap.bucati,
     },
   ]);
 

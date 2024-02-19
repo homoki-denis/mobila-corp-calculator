@@ -64,21 +64,25 @@
       >
         <p class="text-gray-700">
           Dimensiune laterala 1: lungime {{ rez.lateraleDulap1.lungime }},
-          latime {{ rez.lateraleDulap1.latime }} <br />
+          latime {{ rez.lateraleDulap1.latime }}, Buc ({{
+            rez.lateraleDulap1.bucati
+          }}) <br />
           Dimensiune laterala 2: lungime {{ rez.lateraleDulap2.lungime }},
-          latime {{ rez.lateraleDulap2.latime }} <br />
+          latime {{ rez.lateraleDulap2.latime }}, Buc ({{
+            rez.lateraleDulap2.bucati
+          }}) <br />
           Fund dulap: lungime {{ rez.fundDulap.lungime }}, latime
-          {{ rez.fundDulap.latime }} <br />
+          {{ rez.fundDulap.latime }}, Buc ({{ rez.fundDulap.bucati }})
+          <br />
           Capac dulap: lungime {{ rez.capacDulap.lungime }}, latime
-          {{ rez.capacDulap.latime }} <br />
+          {{ rez.capacDulap.latime }}, Buc ({{ rez.capacDulap.bucati }})
+          <br />
           Polita dulap: lungime {{ rez.politaDulap.lungime }}, latime
-          {{ rez.politaDulap.latime }}, Bucati ({{
-            rez.politaDulap.polite
-          }})<br />
+          {{ rez.politaDulap.latime }}, Buc ({{ rez.politaDulap.polite }})<br />
           PFL dulap: inaltime {{ rez.pflDulap.inaltime }}, lungime
-          {{ rez.pflDulap.lungime }}<br />
+          {{ rez.pflDulap.lungime }}, Buc ({{ rez.pflDulap.bucati }})<br />
           Usi dulap: lungime {{ rez.usiDulap.lungime }}, latime
-          {{ rez.usiDulap.latime }}<br />
+          {{ rez.usiDulap.latime }}, Buc ({{ rez.usiDulap.bucati }})<br />
         </p>
       </div>
     </div>
@@ -110,21 +114,25 @@ const calculeazaDimensiuni = (e) => {
     const lateraleDulap1 = {
       lungime: inaltimeDulap - 100 - 36,
       latime: adancimeDulap,
+      bucati: 1,
     };
 
     const lateraleDulap2 = {
       lungime: inaltimeDulap - 100 - 36,
       latime: adancimeDulap,
+      bucati: 1,
     };
 
     const fundDulap = {
       lungime: lungimeDulap,
       latime: adancimeDulap,
+      bucati: 1,
     };
 
     const capacDulap = {
       lungime: lungimeDulap,
       latime: adancimeDulap,
+      bucati: 1,
     };
 
     const politaDulap = {
@@ -136,6 +144,7 @@ const calculeazaDimensiuni = (e) => {
     const pflDulap = {
       inaltime: inaltimeDulap - 100 - 5,
       lungime: lungimeDulap - 5,
+      bucati: 1,
     };
 
     let usiDulap = {};
@@ -150,7 +159,7 @@ const calculeazaDimensiuni = (e) => {
       usiDulap = {
         lungime: fundDulap.lungime - 100,
         latime: fundDulap.latime - 3,
-        bucati: 2,
+        bucati: 1,
       };
     }
 
