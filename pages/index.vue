@@ -118,15 +118,53 @@ const descarcaFisier = () => {
   ]);
 
   const bucatarieCorpParteSus =
-    bucatarieCorpParteSusStore.valoriBucatarieCorpParteSus.map((buc) => ({
-      "dimensiuneLaterala corp sus": `lungime: ${buc.dimensiuneLaterala.lungime} latime: ${buc.dimensiuneLaterala.latime}`,
-      "dimensiunePFL corp sus": `lungime: ${buc.dimensiunePFL.lungime} latime: ${buc.dimensiunePFL.latime}`,
-      "dimensiunePolita corp sus": `lungime: ${buc.dimensiunePolita.lungime} latime: ${buc.dimensiunePolita.latime}`,
-      "dimensiuneFund Cap corp sus": `lungime: ${buc.dimensiuneFundCap.lungime} latime: ${buc.dimensiuneFundCap.latime}`,
-      "rezultateUsi Sus corp sus": `lungime: ${buc.rezultateUsiSus.lungime} latime: ${buc.rezultateUsiSus.latime}`,
-      "nrPolita corp sus": `${buc.nrPolita} buc`,
-      "bucati corp sus": `${buc.bucati} buc`,
-    }));
+    bucatarieCorpParteSusStore.valoriBucatarieCorpParteSus.flatMap((buc) => [
+      {
+        "Denumire Piesa": "Bucatarie dimensiune laterala corp sus",
+        Lungime: buc.dimensiuneLaterala.lungime,
+        Latime: buc.dimensiuneLaterala.latime,
+        "Nr. Bucati": buc.dimensiuneLaterala.bucati,
+      },
+      {
+        "Denumire Piesa": "Dimensiune PFL corp sus",
+        Lungime: buc.dimensiunePFL.lungime,
+        Latime: buc.dimensiunePFL.latime,
+        "Nr. Bucati": buc.dimensiunePFL.bucati,
+      },
+      {
+        "Denumire Piesa": "Dimensiune Polita corp sus",
+        Lungime: buc.dimensiunePolita.lungime,
+        Latime: buc.dimensiunePolita.latime,
+        "Nr. Bucati": buc.dimensiunePolita.bucati,
+      },
+      {
+        "Denumire Piesa": "Dimensiune Fund Cap corp sus",
+        Lungime: buc.dimensiuneFundCap.lungime,
+        Latime: buc.dimensiuneFundCap.latime,
+        "Nr. Bucati": buc.dimensiuneFundCap.bucati,
+      },
+      {
+        "Denumire Piesa": "Rezultate Usi Sus corp sus",
+        Lungime: buc.rezultateUsiSus.lungime,
+        Latime: buc.rezultateUsiSus.latime,
+        "Nr. Bucati": buc.rezultateUsiSus.bucati,
+      },
+      {
+        "Denumire Piesa": "Nr. Polita corp sus",
+        "Nr. Bucati": buc.nrPolita,
+      },
+      {
+        "Denumire Piesa": "Bucati corp sus",
+        "Nr. Bucati": buc.bucati,
+      },
+    ]);
+
+  // {
+  //   "Denumire Piesa": "Laterale Dulap 1",
+  //   Lungime: dulap.lateraleDulap1.lungime,
+  //   Latime: dulap.lateraleDulap1.latime,
+  //   "Nr. Bucati": dulap.lateraleDulap1.bucati,
+  // },
 
   const bucatarieCorpParteJos =
     bucatarieCorpParteJosStore.valoriBucatarieCorpParteJos.map((buc) => ({
