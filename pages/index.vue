@@ -72,16 +72,6 @@ const sertareGtvStore = useSertareGtvStore();
 const sertareBlumStore = useSertareBlumStore();
 
 const descarcaFisier = () => {
-  // const dulapuri = dulapuriStore.valoriDulapuri.map((dulap) => ({
-  //   lateraleDulap1: `lungime: ${dulap.lateraleDulap1.lungime} latime: ${dulap.lateraleDulap1.latime}`,
-  //   lateraleDulap2: `lungime: ${dulap.lateraleDulap2.lungime} latime: ${dulap.lateraleDulap2.latime}`,
-  //   fundDulap: `lungime: ${dulap.fundDulap.lungime} latime: ${dulap.fundDulap.latime}`,
-  //   capacDulap: `lungime: ${dulap.capacDulap.lungime} latime: ${dulap.capacDulap.latime}`,
-  //   politaDulap: `lungime: ${dulap.politaDulap.lungime} latime: ${dulap.politaDulap.latime} polite: ${dulap.politaDulap.polite}`,
-  //   pflDulap: `lungime: ${dulap.pflDulap.lungime} inaltime: ${dulap.pflDulap.inaltime}`,
-  // }));
-
-  //header: ["Denumire Piesa", "Nr. Bucati", "Lungime", "Latime"],
   const dulapuri = dulapuriStore.valoriDulapuri.flatMap((dulap) => [
     {
       "Denumire Piesa": "Laterale Dulap 1",
@@ -101,6 +91,7 @@ const descarcaFisier = () => {
     {
       "Denumire Piesa": "Capac Dulap",
       Lungime: dulap.capacDulap.lungime,
+      Latime: dulap.capacDulap.latime,
     },
     {
       "Denumire Piesa": "Polita Dulap",
@@ -112,6 +103,11 @@ const descarcaFisier = () => {
       "Denumire Piesa": "PFL Dulap",
       Latime: dulap.pflDulap.inaltime,
       Lungime: dulap.pflDulap.lungime,
+    },
+    {
+      "Denumire Piesa": "Usi Dulap",
+      Latime: dulap.usiDulap.latime,
+      Lungime: dulap.usiDulap.lungime,
     },
   ]);
 

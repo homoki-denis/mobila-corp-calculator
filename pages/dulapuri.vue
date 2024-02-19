@@ -77,6 +77,8 @@
           }})<br />
           PFL dulap: inaltime {{ rez.pflDulap.inaltime }}, lungime
           {{ rez.pflDulap.lungime }}<br />
+          Usi dulap: lungime {{ rez.usiDulap.lungime }}, latime
+          {{ rez.usiDulap.latime }}<br />
         </p>
       </div>
     </div>
@@ -136,6 +138,22 @@ const calculeazaDimensiuni = (e) => {
       lungime: lungimeDulap - 5,
     };
 
+    let usiDulap = {};
+
+    if (fundDulap.lungime > 450) {
+      usiDulap = {
+        lungime: fundDulap.lungime - 100,
+        latime: fundDulap.latime / 2 - 3,
+        bucati: 2,
+      };
+    } else {
+      usiDulap = {
+        lungime: fundDulap.lungime - 100,
+        latime: fundDulap.latime - 3,
+        bucati: 2,
+      };
+    }
+
     // Returnarea rezultatelor sub formă de obiect
     return {
       lateraleDulap1,
@@ -144,6 +162,7 @@ const calculeazaDimensiuni = (e) => {
       capacDulap,
       politaDulap,
       pflDulap,
+      usiDulap,
     };
   };
 
