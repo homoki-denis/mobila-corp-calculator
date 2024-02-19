@@ -152,14 +152,42 @@ const descarcaFisier = () => {
     ]);
 
   const bucatarieCorpParteJos =
-    bucatarieCorpParteJosStore.valoriBucatarieCorpParteJos.map((buc) => ({
-      "dimensiuneLaterala corp jos": `lungime: ${buc.dimensiuneLaterala.lungime} latime: ${buc.dimensiuneLaterala.latime}`,
-      "dimensiunePiese Legatura corp jos": `lungime: ${buc.dimensiunePieseLegatura.lungime} latime: ${buc.dimensiunePieseLegatura.latime}`,
-      "dimensiunePFL corp jos": `lungime: ${buc.dimensiunePFL.lungime} latime: ${buc.dimensiunePFL.latime}`,
-      "dimensiunePolita corp jos": `lungime: ${buc.dimensiunePolita.lungime} latime: ${buc.dimensiunePolita.latime}`,
-      "dimensiuneUsi Jos corp jos": `lungime: ${buc.dimensiuneUsiJos.lungime} latime: ${buc.dimensiuneUsiJos.latime}`,
-      "bucatiUsi corp jos": `${buc.bucatiUsi} buc`,
-    }));
+    bucatarieCorpParteJosStore.valoriBucatarieCorpParteJos.flatMap((buc) => [
+      {
+        "Denumire Piesa": "Dimensiune Laterala corp jos",
+        Lungime: buc.dimensiuneLaterala.lungime,
+        Latime: buc.dimensiuneLaterala.latime,
+        "Nr. Bucati": buc.dimensiuneLaterala.bucati,
+      },
+      {
+        "Denumire Piesa": "Dimensiune Piese Legatura corp jos",
+        Lungime: buc.dimensiunePieseLegatura.lungime,
+        Latime: buc.dimensiunePieseLegatura.latime,
+        "Nr. Bucati": buc.dimensiunePieseLegatura.bucati,
+      },
+      {
+        "Denumire Piesa": "Dimensiune PFL corp jos",
+        Lungime: buc.dimensiunePFL.lungime,
+        Latime: buc.dimensiunePFL.latime,
+        "Nr. Bucati": buc.dimensiunePFL.bucati,
+      },
+      {
+        "Denumire Piesa": "Dimensiune Polita corp jos",
+        Lungime: buc.dimensiunePolita.lungime,
+        Latime: buc.dimensiunePolita.latime,
+        "Nr. Bucati": buc.dimensiunePolita.bucati,
+      },
+      {
+        "Denumire Piesa": "Dimensiune Usi Jos corp jos",
+        Lungime: buc.dimensiuneUsiJos.lungime,
+        Latime: buc.dimensiuneUsiJos.latime,
+        "Nr. Bucati": buc.dimensiuneUsiJos.bucati,
+      },
+      {
+        "Denumire Piesa": "Bucati Usi corp jos",
+        "Nr. Bucati": `${buc.bucatiUsi} buc`,
+      },
+    ]);
 
   const bucatarieCorpColtParteJos =
     bucatarieCorpColtParteJosStore.valoriBucatarieCorpColtParteJos;
