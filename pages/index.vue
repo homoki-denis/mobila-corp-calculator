@@ -120,25 +120,25 @@ const descarcaFisier = () => {
   const bucatarieCorpParteSus =
     bucatarieCorpParteSusStore.valoriBucatarieCorpParteSus.flatMap((buc) => [
       {
-        "Denumire Piesa": "Bucatarie dimensiune laterala corp sus",
+        "Denumire Piesa": "Bucatarie laterala corp sus",
         Lungime: buc.dimensiuneLaterala.lungime,
         Latime: buc.dimensiuneLaterala.latime,
         "Nr. Bucati": buc.dimensiuneLaterala.bucati,
       },
       {
-        "Denumire Piesa": "Dimensiune PFL corp sus",
+        "Denumire Piesa": "PFL corp sus",
         Lungime: buc.dimensiunePFL.lungime,
         Latime: buc.dimensiunePFL.latime,
         "Nr. Bucati": buc.dimensiunePFL.bucati,
       },
       {
-        "Denumire Piesa": "Dimensiune Polita corp sus",
+        "Denumire Piesa": "Polita corp sus",
         Lungime: buc.dimensiunePolita.lungime,
         Latime: buc.dimensiunePolita.latime,
         "Nr. Bucati": buc.dimensiunePolita.bucati,
       },
       {
-        "Denumire Piesa": "Dimensiune Fund Cap corp sus",
+        "Denumire Piesa": "Fund Cap corp sus",
         Lungime: buc.dimensiuneFundCap.lungime,
         Latime: buc.dimensiuneFundCap.latime,
         "Nr. Bucati": buc.dimensiuneFundCap.bucati,
@@ -154,31 +154,31 @@ const descarcaFisier = () => {
   const bucatarieCorpParteJos =
     bucatarieCorpParteJosStore.valoriBucatarieCorpParteJos.flatMap((buc) => [
       {
-        "Denumire Piesa": "Dimensiune Laterala corp jos",
+        "Denumire Piesa": "Laterala corp jos",
         Lungime: buc.dimensiuneLaterala.lungime,
         Latime: buc.dimensiuneLaterala.latime,
         "Nr. Bucati": buc.dimensiuneLaterala.bucati,
       },
       {
-        "Denumire Piesa": "Dimensiune Piese Legatura corp jos",
+        "Denumire Piesa": "Piese Legatura corp jos",
         Lungime: buc.dimensiunePieseLegatura.lungime,
         Latime: buc.dimensiunePieseLegatura.latime,
         "Nr. Bucati": buc.dimensiunePieseLegatura.bucati,
       },
       {
-        "Denumire Piesa": "Dimensiune PFL corp jos",
+        "Denumire Piesa": "PFL corp jos",
         Lungime: buc.dimensiunePFL.lungime,
         Latime: buc.dimensiunePFL.latime,
         "Nr. Bucati": buc.dimensiunePFL.bucati,
       },
       {
-        "Denumire Piesa": "Dimensiune Polita corp jos",
+        "Denumire Piesa": "Polita corp jos",
         Lungime: buc.dimensiunePolita.lungime,
         Latime: buc.dimensiunePolita.latime,
         "Nr. Bucati": buc.dimensiunePolita.bucati,
       },
       {
-        "Denumire Piesa": "Dimensiune Usi Jos corp jos",
+        "Denumire Piesa": "Usi Jos corp jos",
         Lungime: buc.dimensiuneUsiJos.lungime,
         Latime: buc.dimensiuneUsiJos.latime,
         "Nr. Bucati": buc.dimensiuneUsiJos.bucatiUsi,
@@ -192,67 +192,67 @@ const descarcaFisier = () => {
     bucatarieCorpColtParteJos
   ).flatMap(([key, buc]) => [
     {
-      "Denumire Piesa": "dimensiuneLaterala colt jos",
+      "Denumire Piesa": "Laterala colt jos",
       Lungime: buc.value[key].dimensiuneLaterala.lungime,
       Latime: buc.value[key].dimensiuneLaterala.latime,
       "Nr. Bucati": buc.value[key].dimensiuneLaterala.bucati,
     },
     {
-      "Denumire Piesa": "dimensiuneLaterala2 colt jos",
+      "Denumire Piesa": "Laterala2 colt jos",
       Lungime: buc.value[key].dimensiuneLaterala2.lungime,
       Latime: buc.value[key].dimensiuneLaterala2.latime,
       "Nr. Bucati": buc.value[key].dimensiuneLaterala2.bucati,
     },
     {
-      "Denumire Piesa": "dimensiuneFund colt jos",
+      "Denumire Piesa": "Fund colt jos",
       Lungime: buc.value[key].dimensiuneFund.lungime,
       Latime: buc.value[key].dimensiuneFund.latime,
       "Nr. Bucati": buc.value[key].dimensiuneFund.bucati,
     },
     {
-      "Denumire Piesa": "dimensiuneFund2 colt jos",
+      "Denumire Piesa": "Fund2 colt jos",
       Lungime: buc.value[key].dimensiuneFund2.lungime,
       Latime: buc.value[key].dimensiuneFund2.latime,
       "Nr. Bucati": buc.value[key].dimensiuneFund2.bucati,
     },
     {
-      "Denumire Piesa": "dimensiunePolita colt jos",
+      "Denumire Piesa": "Polita colt jos",
       Lungime: buc.value[key].dimensiunePolita.lungime,
       Latime: buc.value[key].dimensiunePolita.latime,
       "Nr. Bucati": buc.value[key].dimensiunePolita.bucati,
     },
     {
-      "Denumire Piesa": "dimensiunePolita2 colt jos",
+      "Denumire Piesa": "Polita2 colt jos",
       Lungime: buc.value[key].dimensiunePolita2.lungime,
       Latime: buc.value[key].dimensiunePolita2.latime,
       "Nr. Bucati": buc.value[key].dimensiunePolita2.bucati,
     },
     {
-      "Denumire Piesa": "dimensiuneLegatura1 colt jos",
+      "Denumire Piesa": "Legatura1 colt jos",
       Lungime: buc.value[key].dimensiuneLegatura1.lungime,
       Latime: buc.value[key].dimensiuneLegatura1.latime,
       "Nr. Bucati": buc.value[key].dimensiuneLegatura1.bucati,
     },
     {
-      "Denumire Piesa": "dimensiuneLegatura2 colt jos",
+      "Denumire Piesa": "Legatura2 colt jos",
       Lungime: buc.value[key].dimensiuneLegatura2.lungime,
       Latime: buc.value[key].dimensiuneLegatura2.latime,
       "Nr. Bucati": buc.value[key].dimensiuneLegatura2.bucati,
     },
     {
-      "Denumire Piesa": "dimensiuneSpate colt jos",
+      "Denumire Piesa": "Spate colt jos",
       Lungime: buc.value[key].dimensiuneSpate.lungime,
       Latime: buc.value[key].dimensiuneSpate.latime,
       "Nr. Bucati": buc.value[key].dimensiuneSpate.bucati,
     },
     {
-      "Denumire Piesa": "dimensiunePFL colt jos",
+      "Denumire Piesa": "PFL colt jos",
       Lungime: buc.value[key].dimensiunePFL.lungime,
       Latime: buc.value[key].dimensiunePFL.latime,
       "Nr. Bucati": buc.value[key].dimensiunePFL.bucati,
     },
     {
-      "Denumire Piesa": "dimensiuniUsi colt jos",
+      "Denumire Piesa": "Usi colt jos",
       Lungime: buc.value[key].dimensiuniUsi.lungime,
       Latime: buc.value[key].dimensiuniUsi.latime,
       "Nr. Bucati": buc.value[key].dimensiuniUsi.bucati,
@@ -263,7 +263,7 @@ const descarcaFisier = () => {
     bucatarieCorpColtParteSusStore.valoriBucatarieCorpColtParteSus.flatMap(
       (buc) => [
         {
-          "Denumire Piesa": "lateraleDulap corp colt sus",
+          "Denumire Piesa": "laterale Dulap corp colt sus",
           Lungime: buc.lateraleDulap.lungime,
           Latime: buc.lateraleDulap.latime,
           "Nr. Bucati": buc.lateraleDulap.bucati,
@@ -293,7 +293,7 @@ const descarcaFisier = () => {
           "Nr. Bucati": buc.pfl.bucati,
         },
         {
-          "Denumire Piesa": "corpColtSus corp colt sus",
+          "Denumire Piesa": "usi sus",
           Lungime: buc.corpColtSus.lungime,
           Latime: buc.corpColtSus.latime,
           "Nr. Bucati": buc.corpColtSus.bucati,
