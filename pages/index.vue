@@ -194,21 +194,65 @@ const descarcaFisier = () => {
 
   let bucatarieCorpColtParteJosObiect = Object.entries(
     bucatarieCorpColtParteJos
-  ).map(([key, buc]) => ({
-    "dimensiuneLaterala colt jos": buc.value[key]
-      ? `lungime: ${buc.value[key].dimensiuneLaterala.lungime}, latime: ${buc.value[key].dimensiuneLaterala.latime}`
-      : "N/A",
-    "dimensiuneLaterala2 colt jos": `lungime: ${buc.value[key].dimensiuneLaterala2.lungime}, latime: ${buc.value[key].dimensiuneLaterala2.latime}`,
-    "dimensiuneFund colt jos": `lungime: ${buc.value[key].dimensiuneFund.lungime}, latime: ${buc.value[key].dimensiuneFund.latime}`,
-    "dimensiuneFund2 colt jos": `lungime: ${buc.value[key].dimensiuneFund2.lungime}, latime: ${buc.value[key].dimensiuneFund2.latime}`,
-    "dimensiunePolita colt jos": `lungime: ${buc.value[key].dimensiunePolita.lungime}, latime: ${buc.value[key].dimensiunePolita.latime}`,
-    "dimensiunePolita2 colt jos": `lungime: ${buc.value[key].dimensiunePolita2.lungime}, latime: ${buc.value[key].dimensiunePolita2.latime}`,
-    "dimensiuneLegatura1 colt jos": `lungime: ${buc.value[key].dimensiuneLegatura1.lungime}, latime: ${buc.value[key].dimensiuneLegatura1.latime}`,
-    "dimensiuneLegatura2 colt jos": `lungime: ${buc.value[key].dimensiuneLegatura2.lungime}, latime: ${buc.value[key].dimensiuneLegatura2.latime}`,
-    "dimensiuneSpate colt jos": `lungime: ${buc.value[key].dimensiuneSpate.lungime}, latime: ${buc.value[key].dimensiuneSpate.latime}`,
-    "dimensiunePFL colt jos": `lungime: ${buc.value[key].dimensiunePFL.lungime}, latime: ${buc.value[key].dimensiunePFL.latime}`,
-    "dimensiuniUsi colt jos": `lungime: ${buc.value[key].dimensiuniUsi.lungime}, latime: ${buc.value[key].dimensiuniUsi.latime}, buc: ${buc.value[key].dimensiuniUsi.bucati}`,
-  }));
+  ).flatMap(([key, buc]) => [
+    {
+      "Denumire Piesa": "dimensiuneLaterala colt jos",
+      Lungime: buc.value[key].dimensiuneLaterala.lungime,
+      Latime: buc.value[key].dimensiuneLaterala.latime,
+      "Nr. Bucati": buc.value[key].dimensiuneLaterala.bucati,
+    },
+    {
+      "Denumire Piesa": "dimensiuneLaterala2 colt jos",
+      Lungime: buc.value[key].dimensiuneLaterala2.lungime,
+      Latime: buc.value[key].dimensiuneLaterala2.latime,
+    },
+    {
+      "Denumire Piesa": "dimensiuneFund colt jos",
+      Lungime: buc.value[key].dimensiuneFund.lungime,
+      Latime: buc.value[key].dimensiuneFund.latime,
+    },
+    {
+      "Denumire Piesa": "dimensiuneFund2 colt jos",
+      Lungime: buc.value[key].dimensiuneFund2.lungime,
+      Latime: buc.value[key].dimensiuneFund2.latime,
+    },
+    {
+      "Denumire Piesa": "dimensiunePolita colt jos",
+      Lungime: buc.value[key].dimensiunePolita.lungime,
+      Latime: buc.value[key].dimensiunePolita.latime,
+    },
+    {
+      "Denumire Piesa": "dimensiunePolita2 colt jos",
+      Lungime: buc.value[key].dimensiunePolita2.lungime,
+      Latime: buc.value[key].dimensiunePolita2.latime,
+    },
+    {
+      "Denumire Piesa": "dimensiuneLegatura1 colt jos",
+      Lungime: buc.value[key].dimensiuneLegatura1.lungime,
+      Latime: buc.value[key].dimensiuneLegatura1.latime,
+    },
+    {
+      "Denumire Piesa": "dimensiuneLegatura2 colt jos",
+      Lungime: buc.value[key].dimensiuneLegatura2.lungime,
+      Latime: buc.value[key].dimensiuneLegatura2.latime,
+    },
+    {
+      "Denumire Piesa": "dimensiuneSpate colt jos",
+      Lungime: buc.value[key].dimensiuneSpate.lungime,
+      Latime: buc.value[key].dimensiuneSpate.latime,
+    },
+    {
+      "Denumire Piesa": "dimensiunePFL colt jos",
+      Lungime: buc.value[key].dimensiunePFL.lungime,
+      Latime: buc.value[key].dimensiunePFL.latime,
+    },
+    {
+      "Denumire Piesa": "dimensiuniUsi colt jos",
+      Lungime: buc.value[key].dimensiuniUsi.lungime,
+      Latime: buc.value[key].dimensiuniUsi.latime,
+      "Nr. Bucati": buc.value[key].dimensiuniUsi.bucati,
+    },
+  ]);
 
   const bucatarieCorpColtParteSus =
     bucatarieCorpColtParteSusStore.valoriBucatarieCorpColtParteSus.map(
