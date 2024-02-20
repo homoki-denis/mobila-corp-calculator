@@ -254,18 +254,60 @@ const descarcaFisier = () => {
     },
   ]);
 
+  // const bucatarieCorpColtParteSus =
+  //   bucatarieCorpColtParteSusStore.valoriBucatarieCorpColtParteSus.flatMap(
+  //     (buc) => ({
+  //       "lateraleDulap corp colt sus": `lungime: ${buc.lateraleDulap.lungime}, latime: ${buc.lateraleDulap.latime}`,
+  //       "fundCapac1 corp colt sus": `lungime: ${buc.fundCapac1.lungime}, latime: ${buc.fundCapac1.latime}`,
+  //       "fundCapac2 corp colt sus": `lungime: ${buc.fundCapac2.lungime}, latime: ${buc.fundCapac2.latime}`,
+  //       "spatePal corp colt sus": `lungime: ${buc.spatePal.lungime}, latime: ${buc.spatePal.latime}`,
+  //       "pfl corp colt sus": `inaltime: ${buc.pfl.inaltime}, lungime: ${buc.pfl.lungime}`,
+  //       "corpColtSus corp colt sus": `lungime: ${buc.corpColtSus.lungime}, latime: ${buc.corpColtSus.latime}`,
+  //       "polita corp colt sus": `lungime: ${buc.polita.lungime}, latime: ${buc.polita.latime}`,
+  //       "nrPolita corp colt sus": `buc ${buc.nrPolita}`,
+  //     })
+  //   );
+
   const bucatarieCorpColtParteSus =
-    bucatarieCorpColtParteSusStore.valoriBucatarieCorpColtParteSus.map(
-      (buc) => ({
-        "lateraleDulap corp colt sus": `lungime: ${buc.lateraleDulap.lungime}, latime: ${buc.lateraleDulap.latime}`,
-        "fundCapac1 corp colt sus": `lungime: ${buc.fundCapac1.lungime}, latime: ${buc.fundCapac1.latime}`,
-        "fundCapac2 corp colt sus": `lungime: ${buc.fundCapac2.lungime}, latime: ${buc.fundCapac2.latime}`,
-        "spatePal corp colt sus": `lungime: ${buc.spatePal.lungime}, latime: ${buc.spatePal.latime}`,
-        "pfl corp colt sus": `inaltime: ${buc.pfl.inaltime}, lungime: ${buc.pfl.lungime}`,
-        "corpColtSus corp colt sus": `lungime: ${buc.corpColtSus.lungime}, latime: ${buc.corpColtSus.latime}`,
-        "polita corp colt sus": `lungime: ${buc.polita.lungime}, latime: ${buc.polita.latime}`,
-        "nrPolita corp colt sus": `buc ${buc.nrPolita}`,
-      })
+    bucatarieCorpColtParteSusStore.valoriBucatarieCorpColtParteSus.flatMap(
+      (buc) => [
+        {
+          "Denumire Piesa": "lateraleDulap corp colt sus",
+          Lungime: buc.lateraleDulap.lungime,
+          Latime: buc.lateraleDulap.latime,
+          "Nr. Bucati": buc.lateraleDulap.latime.bucati,
+        },
+        {
+          "Denumire Piesa": "fundCapac1 corp colt sus",
+          Lungime: buc.fundCapac1.lungime,
+          Latime: buc.fundCapac1.latime,
+        },
+        {
+          "Denumire Piesa": "fundCapac2 corp colt sus",
+          Lungime: buc.fundCapac2.lungime,
+          Latime: buc.fundCapac2.latime,
+        },
+        {
+          "Denumire Piesa": "spatePal corp colt sus",
+          Lungime: buc.spatePal.lungime,
+          Latime: buc.spatePal.latime,
+        },
+        {
+          "Denumire Piesa": "pfl corp colt sus",
+          Inaltime: buc.pfl.inaltime,
+          Lungime: buc.pfl.lungime,
+        },
+        {
+          "Denumire Piesa": "corpColtSus corp colt sus",
+          Lungime: buc.corpColtSus.lungime,
+          Latime: buc.corpColtSus.latime,
+        },
+        {
+          "Denumire Piesa": "polita corp colt sus",
+          Lungime: buc.polita.lungime,
+          Latime: buc.polita.latime,
+        },
+      ]
     );
 
   // sertare gtv dimensiuni
