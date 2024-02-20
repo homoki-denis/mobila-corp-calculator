@@ -106,7 +106,7 @@ const calculeazaDimensiuni = (e) => {
     const dimensiuneLaterala = {
       lungime: inaltimeCorpSus,
       latime: 300,
-      bucati: 1,
+      bucati: 2,
     };
 
     // Calcularea dimensiunii PFL
@@ -128,7 +128,7 @@ const calculeazaDimensiuni = (e) => {
     const dimensiuneFundCap = {
       lungime: latimeFundCap,
       latime: 300,
-      bucati: 1,
+      bucati: 2,
     };
 
     // Returnarea rezultatelor sub formă de obiect

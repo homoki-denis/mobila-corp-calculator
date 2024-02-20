@@ -53,26 +53,32 @@ const rezultate = ref({
   dimensiuneLaterala: {
     lungime: 728,
     latime: 500,
+    bucati: 1,
   },
   dimensiuneLaterala2: {
     lungime: 728,
     latime: 500,
+    bucati: 1,
   },
   dimensiuneFund: {
     lungime: 800,
     latime: 500,
+    bucati: 1,
   },
   dimensiuneFund2: {
     lungime: 300,
     latime: 500,
+    bucati: 1,
   },
   dimensiunePolita: {
     lungime: 764,
     latime: 500,
+    bucati: 1,
   },
   dimensiunePolita2: {
     lungime: 282,
     latime: 480,
+    bucati: 1,
   },
   dimensiuneLegatura1: {
     lungime: 764,
@@ -87,10 +93,12 @@ const rezultate = ref({
   dimensiuneSpate: {
     lungime: 728,
     latime: 782,
+    bucati: 1,
   },
   dimensiunePFL: {
     lungime: 741,
     latime: 795,
+    bucati: 1,
   },
   dimensiuniUsi: {
     lungime: 741,

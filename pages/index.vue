@@ -181,11 +181,7 @@ const descarcaFisier = () => {
         "Denumire Piesa": "Dimensiune Usi Jos corp jos",
         Lungime: buc.dimensiuneUsiJos.lungime,
         Latime: buc.dimensiuneUsiJos.latime,
-        "Nr. Bucati": buc.dimensiuneUsiJos.bucati,
-      },
-      {
-        "Denumire Piesa": "Bucati Usi corp jos",
-        "Nr. Bucati": `${buc.dimensiuneUsiJos.bucatiUsi}`,
+        "Nr. Bucati": buc.dimensiuneUsiJos.bucatiUsi,
       },
     ]);
 
@@ -205,46 +201,55 @@ const descarcaFisier = () => {
       "Denumire Piesa": "dimensiuneLaterala2 colt jos",
       Lungime: buc.value[key].dimensiuneLaterala2.lungime,
       Latime: buc.value[key].dimensiuneLaterala2.latime,
+      "Nr. Bucati": buc.value[key].dimensiuneLaterala2.bucati,
     },
     {
       "Denumire Piesa": "dimensiuneFund colt jos",
       Lungime: buc.value[key].dimensiuneFund.lungime,
       Latime: buc.value[key].dimensiuneFund.latime,
+      "Nr. Bucati": buc.value[key].dimensiuneFund.bucati,
     },
     {
       "Denumire Piesa": "dimensiuneFund2 colt jos",
       Lungime: buc.value[key].dimensiuneFund2.lungime,
       Latime: buc.value[key].dimensiuneFund2.latime,
+      "Nr. Bucati": buc.value[key].dimensiuneFund2.bucati,
     },
     {
       "Denumire Piesa": "dimensiunePolita colt jos",
       Lungime: buc.value[key].dimensiunePolita.lungime,
       Latime: buc.value[key].dimensiunePolita.latime,
+      "Nr. Bucati": buc.value[key].dimensiunePolita.bucati,
     },
     {
       "Denumire Piesa": "dimensiunePolita2 colt jos",
       Lungime: buc.value[key].dimensiunePolita2.lungime,
       Latime: buc.value[key].dimensiunePolita2.latime,
+      "Nr. Bucati": buc.value[key].dimensiunePolita2.bucati,
     },
     {
       "Denumire Piesa": "dimensiuneLegatura1 colt jos",
       Lungime: buc.value[key].dimensiuneLegatura1.lungime,
       Latime: buc.value[key].dimensiuneLegatura1.latime,
+      "Nr. Bucati": buc.value[key].dimensiuneLegatura1.bucati,
     },
     {
       "Denumire Piesa": "dimensiuneLegatura2 colt jos",
       Lungime: buc.value[key].dimensiuneLegatura2.lungime,
       Latime: buc.value[key].dimensiuneLegatura2.latime,
+      "Nr. Bucati": buc.value[key].dimensiuneLegatura2.bucati,
     },
     {
       "Denumire Piesa": "dimensiuneSpate colt jos",
       Lungime: buc.value[key].dimensiuneSpate.lungime,
       Latime: buc.value[key].dimensiuneSpate.latime,
+      "Nr. Bucati": buc.value[key].dimensiuneSpate.bucati,
     },
     {
       "Denumire Piesa": "dimensiunePFL colt jos",
       Lungime: buc.value[key].dimensiunePFL.lungime,
       Latime: buc.value[key].dimensiunePFL.latime,
+      "Nr. Bucati": buc.value[key].dimensiunePFL.bucati,
     },
     {
       "Denumire Piesa": "dimensiuniUsi colt jos",
@@ -254,20 +259,6 @@ const descarcaFisier = () => {
     },
   ]);
 
-  // const bucatarieCorpColtParteSus =
-  //   bucatarieCorpColtParteSusStore.valoriBucatarieCorpColtParteSus.flatMap(
-  //     (buc) => ({
-  //       "lateraleDulap corp colt sus": `lungime: ${buc.lateraleDulap.lungime}, latime: ${buc.lateraleDulap.latime}`,
-  //       "fundCapac1 corp colt sus": `lungime: ${buc.fundCapac1.lungime}, latime: ${buc.fundCapac1.latime}`,
-  //       "fundCapac2 corp colt sus": `lungime: ${buc.fundCapac2.lungime}, latime: ${buc.fundCapac2.latime}`,
-  //       "spatePal corp colt sus": `lungime: ${buc.spatePal.lungime}, latime: ${buc.spatePal.latime}`,
-  //       "pfl corp colt sus": `inaltime: ${buc.pfl.inaltime}, lungime: ${buc.pfl.lungime}`,
-  //       "corpColtSus corp colt sus": `lungime: ${buc.corpColtSus.lungime}, latime: ${buc.corpColtSus.latime}`,
-  //       "polita corp colt sus": `lungime: ${buc.polita.lungime}, latime: ${buc.polita.latime}`,
-  //       "nrPolita corp colt sus": `buc ${buc.nrPolita}`,
-  //     })
-  //   );
-
   const bucatarieCorpColtParteSus =
     bucatarieCorpColtParteSusStore.valoriBucatarieCorpColtParteSus.flatMap(
       (buc) => [
@@ -275,37 +266,43 @@ const descarcaFisier = () => {
           "Denumire Piesa": "lateraleDulap corp colt sus",
           Lungime: buc.lateraleDulap.lungime,
           Latime: buc.lateraleDulap.latime,
-          "Nr. Bucati": buc.lateraleDulap.latime.bucati,
+          "Nr. Bucati": buc.lateraleDulap.bucati,
         },
         {
           "Denumire Piesa": "fundCapac1 corp colt sus",
           Lungime: buc.fundCapac1.lungime,
           Latime: buc.fundCapac1.latime,
+          "Nr. Bucati": buc.fundCapac1.bucati,
         },
         {
           "Denumire Piesa": "fundCapac2 corp colt sus",
           Lungime: buc.fundCapac2.lungime,
           Latime: buc.fundCapac2.latime,
+          "Nr. Bucati": buc.fundCapac2.bucati,
         },
         {
           "Denumire Piesa": "spatePal corp colt sus",
           Lungime: buc.spatePal.lungime,
           Latime: buc.spatePal.latime,
+          "Nr. Bucati": buc.spatePal.bucati,
         },
         {
           "Denumire Piesa": "pfl corp colt sus",
           Inaltime: buc.pfl.inaltime,
           Lungime: buc.pfl.lungime,
+          "Nr. Bucati": buc.pfl.bucati,
         },
         {
           "Denumire Piesa": "corpColtSus corp colt sus",
           Lungime: buc.corpColtSus.lungime,
           Latime: buc.corpColtSus.latime,
+          "Nr. Bucati": buc.corpColtSus.bucati,
         },
         {
           "Denumire Piesa": "polita corp colt sus",
           Lungime: buc.polita.lungime,
           Latime: buc.polita.latime,
+          "Nr. Bucati": buc.polita.bucati,
         },
       ]
     );

@@ -84,14 +84,14 @@ const calculeazaDimensiuni = (e) => {
     const dimensiuneLaterala = {
       lungime: 728,
       latime: 500,
-      bucati: 1
+      bucati: 2
     };
 
     // Calcularea dimensiunii Piese de legătură
     const dimensiunePieseLegatura = {
       lungime: dimensiuneFund - 36,
       latime: 100,
-      bucati: 1
+      bucati: 2
     };
 
     // Calcularea dimensiunii PFL

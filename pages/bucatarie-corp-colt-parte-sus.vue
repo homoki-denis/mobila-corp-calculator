@@ -42,7 +42,7 @@
         {{ rez.fundCapac2.latime }}<br />
         Spate pal: lungime {{ rez.spatePal.lungime }}, latime
         {{ rez.spatePal.latime }}<br />
-        PFL: inaltime {{ rez.pfl.inaltime }}, lungime {{ rez.pfl.lungime }}
+        PFL: inaltime {{ rez.pfl.latime }}, lungime {{ rez.pfl.lungime }}
         <br />
         Polita: lungime {{ rez.polita.lungime }}, latime
         {{ rez.polita.latime }} ({{ rez.nrPolita }} Buc)
@@ -65,6 +65,10 @@ const inaltimeCorp = ref(0);
 const rezultate = ref([]);
 const nrPolita = ref(0);
 
+// Polițe îi în funcție de câte introduc
+// Laterale 2 bucăți
+// Restul câte 1
+
 const calculeazaDimensiuni = (e) => {
   e.preventDefault();
   const initialNrPolita = nrPolita.value;
@@ -72,36 +76,43 @@ const calculeazaDimensiuni = (e) => {
     const lateraleDulap = {
       lungime: inaltimeCorp,
       latime: 300,
+      bucati: 2,
     };
 
     const fundCapac1 = {
       lungime: 564,
       latime: 300,
+      bucati: 1,
     };
 
     const fundCapac2 = {
       lungime: 282,
       latime: 282,
+      bucati: 1,
     };
 
     const spatePal = {
       lungime: inaltimeCorp,
       latime: 582,
+      bucati: 1,
     };
 
     const pfl = {
-      inaltime: inaltimeCorp,
+      latime: inaltimeCorp,
       lungime: 595,
+      bucati: 1,
     };
 
     const corpColtSus = {
       lungime: inaltimeCorp,
       latime: 279,
+      bucati: 1,
     };
 
     const polita = {
       lungime: 564,
       latime: 295,
+      bucati: nrPolita,
     };
 
     return {
