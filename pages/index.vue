@@ -288,7 +288,7 @@ const descarcaFisier = () => {
         },
         {
           "Denumire Piesa": "pfl corp colt sus",
-          Inaltime: buc.pfl.inaltime,
+          Latime: buc.pfl.latime,
           Lungime: buc.pfl.lungime,
           "Nr. Bucati": buc.pfl.bucati,
         },
@@ -306,6 +306,13 @@ const descarcaFisier = () => {
         },
       ]
     );
+
+  // Fund capac 1, și fund capac 2 sus
+  // Ion
+  // Sunt 2 bucăți de fiecare
+  // Ion
+  // Iar la
+  // Pfl nu generează lățimea
 
   // sertare gtv dimensiuni
   const sertareGtvDimensiuni = sertareGtvStore.valoriSertareGtv;

@@ -82,13 +82,13 @@ const calculeazaDimensiuni = (e) => {
     const fundCapac1 = {
       lungime: 564,
       latime: 300,
-      bucati: 1,
+      bucati: 2,
     };
 
     const fundCapac2 = {
       lungime: 282,
       latime: 282,
-      bucati: 1,
+      bucati: 2,
     };
 
     const spatePal = {
