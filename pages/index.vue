@@ -307,13 +307,6 @@ const descarcaFisier = () => {
       ]
     );
 
-  // Fund capac 1, și fund capac 2 sus
-  // Ion
-  // Sunt 2 bucăți de fiecare
-  // Ion
-  // Iar la
-  // Pfl nu generează lățimea
-
   // sertare gtv dimensiuni
   const sertareGtvDimensiuni = sertareGtvStore.valoriSertareGtv;
   let toateDimensiunileSertareGtv = [];
@@ -321,13 +314,22 @@ const descarcaFisier = () => {
   for (let obiectSertar of sertareGtvDimensiuni) {
     for (let dimensiune of obiectSertar.dimensiuni) {
       const dimensiuneObiect = {
-        "DimensiuneGTV lungime": `lungime ${dimensiune.lungime}`,
-        "DimensiuneGTV latime": `latime ${dimensiune.latime}`,
-        "DimensiuneGTV buc": `buc ${dimensiune.bucati}`,
+        gtvLungime: dimensiune.lungime,
+        gtvLatime: dimensiune.latime,
+        gtvBucati: dimensiune.bucati,
       };
       toateDimensiunileSertareGtv.push(dimensiuneObiect);
     }
   }
+
+  const dimensiuniSertareGtv = toateDimensiunileSertareGtv.flatMap((buc) => [
+    {
+      "Denumire Piesa": "Sertare GTV",
+      Lungime: buc.gtvLungime,
+      Latime: buc.gtvLatime,
+      "Nr. Bucati": buc.gtvBucati,
+    },
+  ]);
 
   // sertare gtv fete sertare
   const sertareGtvFeteSertare = sertareGtvStore.valoriSertareGtv;
@@ -336,13 +338,22 @@ const descarcaFisier = () => {
   for (let obiectSertar of sertareGtvFeteSertare) {
     for (let sertare of obiectSertar.feteSertare) {
       const dimensiuneObiect = {
-        "FeteSertare GTV lungime": `lungime ${sertare.lungime}`,
-        "FeteSertare GTV latime": `latime ${sertare.latime}`,
-        "FeteSertare GTV buc": `buc ${sertare.bucati}`,
+        FeteSertareGtvLungime: sertare.lungime,
+        FeteSertareGtvLatime: sertare.latime,
+        FeteSertareGtvBucati: sertare.bucati,
       };
       toateFeteSertareGtv.push(dimensiuneObiect);
     }
   }
+
+  const sertareFeteGtv = toateFeteSertareGtv.flatMap((buc) => [
+    {
+      "Denumire Piesa": "Sertare fete GTV",
+      Lungime: buc.FeteSertareGtvLungime,
+      Latime: buc.FeteSertareGtvLatime,
+      "Nr. Bucati": buc.FeteSertareGtvBucati,
+    },
+  ]);
 
   // sertare blum dimensiuni
   const sertareBlumDimensiuni = sertareBlumStore.valoriSertareBlum;
@@ -351,13 +362,23 @@ const descarcaFisier = () => {
   for (let obiectSertar of sertareBlumDimensiuni) {
     for (let dimensiuni of obiectSertar.dimensiuni) {
       const dimensiuneObiect = {
-        "DimensiuneBlum lungime": `lungime ${dimensiuni.lungime}`,
-        "DimensiuneBlum latime": `latime ${dimensiuni.latime}`,
-        "DimensiuneBlum buc": `buc ${dimensiuni.bucati}`,
+        SertareBlumLungime: dimensiuni.lungime,
+        SertareBlumLatime: dimensiuni.latime,
+        SertareBlumBucati: dimensiuni.bucati,
       };
       toateDimensiunileSertareBlum.push(dimensiuneObiect);
     }
   }
+
+  const sertareBlum = toateDimensiunileSertareBlum.flatMap((buc) => [
+    {
+      "Denumire Piesa": "Sertare Blum",
+      Lungime: buc.SertareBlumLungime,
+      Latime: buc.SertareBlumLatime,
+      "Nr. Bucati": buc.SertareBlumBucati,
+    },
+  ]);
+
   // sertare blum fete
   const sertareBlumFeteSertare = sertareBlumStore.valoriSertareBlum;
   let toateFeteSertareBlum = [];
@@ -365,21 +386,30 @@ const descarcaFisier = () => {
   for (let obiectSertar of sertareBlumFeteSertare) {
     for (let sertare of obiectSertar.feteSertare) {
       const dimensiuneObiect = {
-        "FeteSertare blum lungime": `lungime ${sertare.lungime}`,
-        "FeteSertare blum latime": `latime ${sertare.latime}`,
-        "FeteSertare blum buc": `buc ${sertare.bucati}`,
+        feteSertareBlumLungime: sertare.lungime,
+        feteSertareBlumLatime: sertare.latime,
+        feteSertareBlumBucati: sertare.bucati,
       };
       toateFeteSertareBlum.push(dimensiuneObiect);
     }
   }
 
+  const feteSertareBlum = toateFeteSertareBlum.flatMap((buc) => [
+    {
+      "Denumire Piesa": "Sertare Fete Blum",
+      Lungime: buc.feteSertareBlumLungime,
+      Latime: buc.feteSertareBlumLatime,
+      "Nr. Bucati": buc.feteSertareBlumBucati,
+    },
+  ]);
+
   const allData = [
     ...bucatarieCorpParteJos,
     ...bucatarieCorpParteSus,
-    ...toateDimensiunileSertareGtv,
-    ...toateFeteSertareGtv,
-    ...toateDimensiunileSertareBlum,
-    ...toateFeteSertareBlum,
+    ...dimensiuniSertareGtv,
+    ...sertareFeteGtv,
+    ...sertareBlum,
+    ...feteSertareBlum,
     ...bucatarieCorpColtParteJosObiect,
     ...bucatarieCorpColtParteSus,
     ...dulapuri,
