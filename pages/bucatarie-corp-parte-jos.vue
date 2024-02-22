@@ -42,9 +42,9 @@
           {{ rez.dimensiunePFL.latime }}<br />
           Dimensiuni Poliță: lungime {{ rez.dimensiunePolita.lungime }}, latime
           {{ rez.dimensiunePolita.latime }} <br>
+          Dimensiuni Fund Jos: lungime {{ rez.fundJos.lungime}},  latime {{ rez.fundJos.latime }}, ({{ rez.fundJos.bucati }} buc)
           <p class="font-bold">Dimensiuni usi jos</p>
           lungime {{ rez.dimensiuneUsiJos.lungime }}, latime {{ rez.dimensiuneUsiJos.latime }} (<span>{{ rez.dimensiuneUsiJos.bucatiUsi }} Buc</span>) 
-        
         </p>
       </div>
     </div>
@@ -108,6 +108,12 @@ const calculeazaDimensiuni = (e) => {
       bucati: 1
     };
 
+    const fundJos = {
+      lungime: dimensiuneFund,
+      latime: 500,
+      bucati: 1
+    }
+
     // Returnarea rezultatelor sub formă de obiect
     return {
       dimensiuneLaterala: dimensiuneLaterala,
@@ -115,7 +121,8 @@ const calculeazaDimensiuni = (e) => {
       dimensiunePFL: dimensiunePFL,
       dimensiunePolita: dimensiunePolita,
       dimensiuneUsiJos: rezultateUsiJos,
-      bucatiUsi: bucatiUsi
+      bucatiUsi: bucatiUsi,
+      fundJos: fundJos
     };
   };
 

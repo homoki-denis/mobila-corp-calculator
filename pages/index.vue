@@ -183,6 +183,12 @@ const descarcaFisier = () => {
         Latime: buc.dimensiuneUsiJos.latime,
         "Nr. Bucati": buc.dimensiuneUsiJos.bucatiUsi,
       },
+      {
+        "Denumire Piesa": "Fund Jos",
+        Lungime: buc.fundJos.lungime,
+        Latime: buc.fundJos.latime,
+        "Nr. Bucati": buc.fundJos.bucati,
+      },
     ]);
 
   const bucatarieCorpColtParteJos =
@@ -322,14 +328,18 @@ const descarcaFisier = () => {
     }
   }
 
-  const dimensiuniSertareGtv = toateDimensiunileSertareGtv.flatMap((buc) => [
-    {
-      "Denumire Piesa": "Sertare GTV",
-      Lungime: buc.gtvLungime,
-      Latime: buc.gtvLatime,
-      "Nr. Bucati": buc.gtvBucati,
-    },
-  ]);
+  const dimensiuniSertareGtv = toateDimensiunileSertareGtv.flatMap(
+    (buc, i, array) => [
+      {
+        "Denumire Piesa": `${
+          i === array.length - 1 ? "Pfl sertare GTV" : "Sertare GTV"
+        }`,
+        Lungime: buc.gtvLungime,
+        Latime: buc.gtvLatime,
+        "Nr. Bucati": buc.gtvBucati,
+      },
+    ]
+  );
 
   // sertare gtv fete sertare
   const sertareGtvFeteSertare = sertareGtvStore.valoriSertareGtv;

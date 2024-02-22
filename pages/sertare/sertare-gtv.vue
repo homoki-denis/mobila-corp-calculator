@@ -45,7 +45,7 @@
           Lungime {{ dimensiune.lungime }}, latime {{ dimensiune.latime }} ({{
             dimensiune.bucati
           }}
-          Buc)
+          Buc) <br />
         </p>
         <p class="font-bold">Fete Sertare</p>
         <p v-for="(sertare, k) in rez.feteSertare" class="text-gray-700">
@@ -76,7 +76,6 @@ const calculeazaDimensiuni = (e) => {
   const generareDimensiuni = (lungimeFund, nrSertare) => {
     let dimensiuni = [];
     let feteSertare = [];
-
     // dimensiune sertare set 1
     const a = {
       lungime: 450,
@@ -126,6 +125,12 @@ const calculeazaDimensiuni = (e) => {
       bucati: 8,
     };
 
+    const pfl = {
+      lungime: 445,
+      latime: lungimeFund - 99,
+      bucati: nrSertare,
+    };
+
     // dimensiuni fete sertar
     const feteSertar = {
       lungime: lungimeFund - 3,
@@ -149,10 +154,10 @@ const calculeazaDimensiuni = (e) => {
     };
 
     if (nrSertare === 3) {
-      dimensiuni.push(a, b, a2, b2, a3, b3);
+      dimensiuni.push(a, b, a2, b2, a3, b3, pfl);
       feteSertare.push(feteSertar, feteSertar2, feteSertar3);
     } else if (nrSertare === 4) {
-      dimensiuni = [a4, b4];
+      dimensiuni = [a4, b4, pfl];
       feteSertare = [feteSertar4];
     }
 
