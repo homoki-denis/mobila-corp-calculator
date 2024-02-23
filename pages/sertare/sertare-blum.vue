@@ -73,7 +73,6 @@ import { ref } from "vue";
 import { useSertareBlumStore } from "@/store/sertare-blum";
 
 const sertareGtvStore = useSertareBlumStore();
-let valoriSertareBlum;
 
 const adancimeCorp = ref(0);
 const lungimeFund = ref(0);

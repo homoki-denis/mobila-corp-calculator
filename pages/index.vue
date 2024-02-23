@@ -61,6 +61,7 @@
 </template>
 
 <script setup>
+import { useSertareHaffeleStore } from "#imports";
 import * as XLSX from "xlsx";
 
 const dulapuriStore = useDulapuriStore();
@@ -70,6 +71,7 @@ const bucatarieCorpColtParteSusStore = useBucatarieCorpColtParteSus();
 const bucatarieCorpColtParteJosStore = useBucatarieCorpColtParteJos();
 const sertareGtvStore = useSertareGtvStore();
 const sertareBlumStore = useSertareBlumStore();
+const sertareHaffeleStore = useSertareHaffeleStore();
 
 const descarcaFisier = () => {
   const dulapuri = dulapuriStore.valoriDulapuri.flatMap((dulap) => [
@@ -413,6 +415,56 @@ const descarcaFisier = () => {
     },
   ]);
 
+  // haffele
+
+  const sertareHaffeleDimensiuni = sertareHaffeleStore.valoriSertareHaffele;
+  let toateDimensiunileSertareHaffele = [];
+
+  for (let obiectSertar of sertareHaffeleDimensiuni) {
+    for (let dimensiuni of obiectSertar.dimensiuni) {
+      const dimensiuneObiect = {
+        SertareHaffeleLungime: dimensiuni.lungime,
+        SertareHaffeleLatime: dimensiuni.latime,
+        SertareHaffeleBucati: dimensiuni.bucati,
+      };
+      toateDimensiunileSertareHaffele.push(dimensiuneObiect);
+    }
+  }
+
+  const sertareHaffele = toateDimensiunileSertareHaffele.flatMap((buc) => [
+    {
+      "Denumire Piesa": "Sertare Haffele",
+      Lungime: buc.SertareHaffeleLungime,
+      Latime: buc.SertareHaffeleLatime,
+      "Nr. Bucati": buc.SertareHaffeleBucati,
+    },
+  ]);
+
+  // sertare haffele fete
+  const sertareHaffeleFeteSertare = sertareHaffeleStore.valoriSertareHaffele;
+
+  let toateFeteSertareHaffele = [];
+
+  for (let obiectSertar of sertareHaffeleFeteSertare) {
+    for (let sertare of obiectSertar.feteSertare) {
+      const dimensiuneObiect = {
+        feteSertareHaffeleLungime: sertare.lungime,
+        feteSertareHaffeleLatime: sertare.latime,
+        feteSertareHaffeleBucati: sertare.bucati,
+      };
+      toateFeteSertareHaffele.push(dimensiuneObiect);
+    }
+  }
+
+  const feteSertareHaffele = toateFeteSertareHaffele.flatMap((buc) => [
+    {
+      "Denumire Piesa": "Sertare Fete Haffele",
+      Lungime: buc.feteSertareHaffeleLungime,
+      Latime: buc.feteSertareHaffeleLatime,
+      "Nr. Bucati": buc.feteSertareHaffeleBucati,
+    },
+  ]);
+
   const allData = [
     ...bucatarieCorpParteJos,
     ...bucatarieCorpParteSus,
@@ -420,6 +472,8 @@ const descarcaFisier = () => {
     ...sertareFeteGtv,
     ...sertareBlum,
     ...feteSertareBlum,
+    ...sertareHaffele,
+    ...feteSertareHaffele,
     ...bucatarieCorpColtParteJosObiect,
     ...bucatarieCorpColtParteSus,
     ...dulapuri,

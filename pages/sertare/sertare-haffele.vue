@@ -6,7 +6,7 @@
           <label class="block text-md font-bold mb-2" for="corp-parte-jos">
             Sertare Haffele
           </label>
-          <label for="dimensiuneFund" class="text-sm font-bold"
+          <label for="lungimeFund" class="text-sm font-bold"
             >Lungime fund</label
           >
           <input
@@ -17,11 +17,20 @@
             placeholder="Lungime fund"
           />
 
-          <label for="dimensiuneFund" class="text-sm font-bold"
+          <label for="adancimeCorp" class="text-sm font-bold"
             >Adancime corp</label
           >
           <input
             v-model="adancimeCorp"
+            class="w-full px-3 py-2 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+            id="adancimeCorp"
+            type="number"
+            placeholder="Adancime corp"
+          />
+
+          <label for="nrSertare" class="text-sm font-bold">Nr sertare</label>
+          <input
+            v-model="nrSertare"
             class="w-full px-3 py-2 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
             id="adancimeCorp"
             type="number"
@@ -61,75 +70,102 @@
 
 <script setup>
 import { ref } from "vue";
-import { useSertareBlumStore } from "@/store/sertare-blum";
+import { useSertareHaffeleStore } from "@/store/sertare-haffele";
 
-const sertareGtvStore = useSertareBlumStore();
-let valoriSertareBlum;
+const sertareHaffeleStore = useSertareHaffeleStore();
 
 const adancimeCorp = ref(0);
 const lungimeFund = ref(0);
+const nrSertare = ref(0);
 const rezultate = ref([]);
 
 const calculeazaDimensiuni = (e) => {
   e.preventDefault();
 
-  const generareDimensiuni = (adancimeCorp, lungimeFund) => {
+  const generareDimensiuni = (adancimeCorp, lungimeFund, nrSertare) => {
     let dimensiuni = [];
     let feteSertare = [];
 
-    // adancime corp
-    const adancimeCorp1 = {
-      latime: adancimeCorp - 50,
-      lungime: 220,
-      bucati: 4,
-    };
+    if (nrSertare === 3) {
+      const adancimeCorp1 = {
+        latime: adancimeCorp - 50,
+        lungime: 220,
+        bucati: 4,
+      };
 
-    const adancimeCorp2 = {
-      latime: adancimeCorp - 50,
-      lungime: 130,
-      bucati: 2,
-    };
+      const adancimeCorp2 = {
+        latime: adancimeCorp - 50,
+        lungime: 130,
+        bucati: 2,
+      };
 
-    // lungime fund
-    const lungimeFund1 = {
-      latime: lungimeFund - 86,
-      lungime: 190,
-      bucati: 4,
-    };
+      const lungimeFund1 = {
+        latime: lungimeFund - 86,
+        lungime: 190,
+        bucati: 4,
+      };
 
-    const lungimeFund2 = {
-      latime: lungimeFund - 86,
-      lungime: 100,
-      bucati: 2,
-    };
+      const lungimeFund2 = {
+        latime: lungimeFund - 86,
+        lungime: 100,
+        bucati: 2,
+      };
 
-    const adancimeCorp3 = {
-      latime: adancimeCorp - 50,
-      lungime: lungimeFund - 86,
-      bucati: 3,
-    };
+      const adancimeCorp3 = {
+        latime: adancimeCorp - 50,
+        lungime: lungimeFund - 86,
+        bucati: 3,
+      };
 
-    // fete sertar
-    const feteSertar1 = {
-      latime: lungimeFund - 3,
-      lungime: 274,
-      bucati: 2,
-    };
+      const feteSertar1 = {
+        latime: lungimeFund - 3,
+        lungime: 274,
+        bucati: 2,
+      };
 
-    const feteSertar2 = {
-      latime: lungimeFund - 3,
-      lungime: 187,
-      bucati: 1,
-    };
+      const feteSertar2 = {
+        latime: lungimeFund - 3,
+        lungime: 187,
+        bucati: 1,
+      };
 
-    dimensiuni.push(
-      adancimeCorp1,
-      adancimeCorp2,
-      lungimeFund1,
-      lungimeFund2,
-      adancimeCorp3
-    );
-    feteSertare.push(feteSertar1, feteSertar2);
+      dimensiuni.push(
+        adancimeCorp1,
+        adancimeCorp2,
+        lungimeFund1,
+        lungimeFund2,
+        adancimeCorp3
+      );
+
+      feteSertare.push(feteSertar1, feteSertar2);
+    } else if (nrSertare === 4) {
+      const adancimeCorp1 = {
+        latime: adancimeCorp - 50,
+        lungime: 130,
+        bucati: 8,
+      };
+
+      const lungimeFund1 = {
+        latime: lungimeFund - 86,
+        lungime: 100,
+        bucati: 8,
+      };
+
+      const adancimeCorp3 = {
+        latime: adancimeCorp - 50,
+        lungime: lungimeFund - 86,
+        bucati: 4,
+      };
+
+      const feteSertar1 = {
+        latime: lungimeFund - 3,
+        lungime: 183,
+        bucati: 4,
+      };
+
+      dimensiuni.push(adancimeCorp1, lungimeFund1, adancimeCorp3);
+      feteSertare.push(feteSertar1);
+    }
 
     return {
       dimensiuni,
@@ -137,10 +173,14 @@ const calculeazaDimensiuni = (e) => {
     };
   };
 
-  valoriSertareBlum = generareDimensiuni(adancimeCorp.value, lungimeFund.value);
+  const valoriSertareHaffele = generareDimensiuni(
+    adancimeCorp.value,
+    lungimeFund.value,
+    nrSertare.value
+  );
 
-  rezultate.value.push(valoriSertareBlum);
+  rezultate.value.push(valoriSertareHaffele);
 
-  sertareGtvStore.addRezultat(valoriSertareBlum);
+  sertareHaffeleStore.addRezultat(valoriSertareHaffele);
 };
 </script>

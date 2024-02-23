@@ -19,9 +19,9 @@
         </button>
       </NuxtLink>
 
-      <NuxtLink to="/">
+      <NuxtLink to="sertare/sertare-haffele">
         <button
-          class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
         >
           Sertare haffele
         </button>
