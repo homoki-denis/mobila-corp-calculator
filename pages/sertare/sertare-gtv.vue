@@ -135,16 +135,19 @@ const calculeazaDimensiuni = (e) => {
     const feteSertar = {
       lungime: lungimeFund - 3,
       latime: 230,
+      bucati: 1,
     };
 
     const feteSertar2 = {
       lungime: lungimeFund - 3,
       latime: 265,
+      bucati: 1,
     };
 
     const feteSertar3 = {
       lungime: lungimeFund - 3,
       latime: 150,
+      bucati: 1,
     };
 
     const feteSertar4 = {

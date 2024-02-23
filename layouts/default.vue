@@ -5,8 +5,8 @@
       src="~/assets/images/background.jpg"
       alt=""
     />
-    <button class="mb-4 flex z-50">
-      <NuxtLink v-if="route.path !== '/'" to="/"><IconsLeftArrow /></NuxtLink>
+    <button class="mb-4 flex z-50" @click="$router.go(-1)">
+      <NuxtLink v-if="route.path !== '/'"><IconsLeftArrow /></NuxtLink>
     </button>
     <div>
       <slot />

@@ -88,44 +88,44 @@ const calculeazaDimensiuni = (e) => {
 
     if (nrSertare === 3) {
       const adancimeCorp1 = {
-        latime: adancimeCorp - 60,
-        lungime: 220,
+        lungime: adancimeCorp - 60,
+        latime: 220,
         bucati: 4,
       };
 
       const adancimeCorp2 = {
-        latime: adancimeCorp - 60,
-        lungime: 130,
+        lungime: adancimeCorp - 60,
+        latime: 130,
         bucati: 2,
       };
 
       const lungimeFund1 = {
-        latime: lungimeFund - 86,
-        lungime: 190,
+        lungime: lungimeFund - 86,
+        latime: 190,
         bucati: 4,
       };
 
       const lungimeFund2 = {
-        latime: lungimeFund - 86,
-        lungime: 100,
+        lungime: lungimeFund - 86,
+        latime: 100,
         bucati: 2,
       };
 
       const adancimeCorp3 = {
-        latime: adancimeCorp - 60,
-        lungime: lungimeFund - 86,
+        lungime: adancimeCorp - 60,
+        latime: lungimeFund - 86,
         bucati: 3,
       };
 
       const feteSertar1 = {
-        latime: lungimeFund - 3,
-        lungime: 274,
+        lungime: lungimeFund - 3,
+        latime: 274,
         bucati: 2,
       };
 
       const feteSertar2 = {
-        latime: lungimeFund - 3,
-        lungime: 187,
+        lungime: lungimeFund - 3,
+        latime: 187,
         bucati: 1,
       };
 
@@ -139,26 +139,26 @@ const calculeazaDimensiuni = (e) => {
       feteSertare.push(feteSertar1, feteSertar2);
     } else if (nrSertare === 4) {
       const adancimeCorp1 = {
-        latime: adancimeCorp - 60,
-        lungime: 130,
+        lungime: adancimeCorp - 60,
+        latime: 130,
         bucati: 8,
       };
 
       const lungimeFund1 = {
-        latime: lungimeFund - 86,
-        lungime: 100,
+        lungime: lungimeFund - 86,
+        latime: 100,
         bucati: 8,
       };
 
       const adancimeCorp3 = {
-        latime: adancimeCorp - 60,
-        lungime: lungimeFund - 86,
+        lungime: adancimeCorp - 60,
+        latime: lungimeFund - 86,
         bucati: 4,
       };
 
       const feteSertar1 = {
-        latime: lungimeFund - 3,
-        lungime: 183,
+        lungime: lungimeFund - 3,
+        latime: 183,
         bucati: 4,
       };
 
