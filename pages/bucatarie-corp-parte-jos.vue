@@ -44,7 +44,8 @@
           {{ rez.dimensiunePolita.latime }} <br>
           Dimensiuni Fund Jos: lungime {{ rez.fundJos.lungime}},  latime {{ rez.fundJos.latime }}, ({{ rez.fundJos.bucati }} buc)
           <p class="font-bold">Dimensiuni usi jos</p>
-          lungime {{ rez.dimensiuneUsiJos.lungime }}, latime {{ rez.dimensiuneUsiJos.latime }} (<span>{{ rez.dimensiuneUsiJos.bucatiUsi }} Buc</span>) 
+          lungime {{ rez.dimensiuneUsiJos.lungime }}, latime {{ rez.dimensiuneUsiJos.latime }} (<span>{{ rez.dimensiuneUsiJos.bucatiUsi }} Buc</span>) <br>
+          Total: {{( rez.dimensiuneLaterala.lungime + rez.dimensiuneLaterala.latime + rez.dimensiunePieseLegatura.lungime + rez.dimensiunePieseLegatura.latime + rez.dimensiunePFL.lungime + rez.dimensiunePFL.latime + rez.dimensiunePolita.lungime + rez.dimensiunePolita.latime +  rez.fundJos.lungime + rez.fundJos.latime) / 1000}}
         </p>
       </div>
     </div>
