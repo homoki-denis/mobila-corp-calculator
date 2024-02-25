@@ -33,6 +33,8 @@
           Dimensiuni laterale: lungime
           {{ rez.dimensiuneLaterala.lungime }}, latime
           {{ rez.dimensiuneLaterala.latime }} (2 buc)
+          <input type="number" placeholder="Cant lungime" v-model="cantDimLatLungime" class="focus:outline-none focus:shadow-outline border p-1">
+          <input type="number" placeholder="Cant latime" v-model="cantDimLatLatime" class="focus:outline-none focus:shadow-outline border p-1">
           <br />
           Dimensiuni Piese de legătură: lungime
           {{ rez.dimensiunePieseLegatura.lungime }}, latime
@@ -45,8 +47,14 @@
           Dimensiuni Fund Jos: lungime {{ rez.fundJos.lungime}},  latime {{ rez.fundJos.latime }}, ({{ rez.fundJos.bucati }} buc)
           <p class="font-bold">Dimensiuni usi jos</p>
           lungime {{ rez.dimensiuneUsiJos.lungime }}, latime {{ rez.dimensiuneUsiJos.latime }} (<span>{{ rez.dimensiuneUsiJos.bucatiUsi }} Buc</span>) <br>
-          Total: {{( rez.dimensiuneLaterala.lungime + rez.dimensiuneLaterala.latime + rez.dimensiunePieseLegatura.lungime + rez.dimensiunePieseLegatura.latime + rez.dimensiunePFL.lungime + rez.dimensiunePFL.latime + rez.dimensiunePolita.lungime + rez.dimensiunePolita.latime +  rez.fundJos.lungime + rez.fundJos.latime) / 1000}}
+          Total: {{ rez.total }}
         </p>
+        <button
+          class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          @click="setareCant"
+        >
+          Setare Cant
+        </button>
       </div>
     </div>
   </div>
@@ -60,11 +68,16 @@ const bucatarieCorpParteJosStore = useBucatarieCorpParteJos();
 let valoriBucatarieCorpParteJos;
 
 const dimensiuneFund = ref(0);
+const cantDimLatLungime = ref(0)
+const cantDimLatLatime = ref(0)
 const rezultate = ref([]);
 let rezultateUsiJos = [];
 
+
+
 // Corp partea de jos
 const calculeazaDimensiuni = (e) => {
+
   e.preventDefault();
   const generareDimensiuni = (dimensiuneFund) => {
     let latimeUsa;
@@ -81,11 +94,15 @@ const calculeazaDimensiuni = (e) => {
     
     }
 
+    
+
     // Calcularea dimensiunii laterale
     const dimensiuneLaterala = {
       lungime: 728,
       latime: 500,
-      bucati: 2
+      bucati: 2,
+      lungimeCant: 0,
+      latimeCant: 0
     };
 
     // Calcularea dimensiunii Piese de legătură
@@ -115,6 +132,12 @@ const calculeazaDimensiuni = (e) => {
       bucati: 1
     }
 
+    const total = (dimensiuneLaterala.lungime + dimensiuneLaterala.latime + 
+                  dimensiunePieseLegatura.lungime + dimensiunePieseLegatura.latime +
+                  dimensiunePFL.lungime + dimensiunePFL.latime +
+                  dimensiunePolita.lungime + dimensiunePolita.latime +
+                  fundJos.lungime + fundJos.latime) / 1000
+
     // Returnarea rezultatelor sub formă de obiect
     return {
       dimensiuneLaterala: dimensiuneLaterala,
@@ -123,7 +146,8 @@ const calculeazaDimensiuni = (e) => {
       dimensiunePolita: dimensiunePolita,
       dimensiuneUsiJos: rezultateUsiJos,
       bucatiUsi: bucatiUsi,
-      fundJos: fundJos
+      fundJos: fundJos,
+      total: total
     };
   };
 
@@ -133,4 +157,15 @@ const calculeazaDimensiuni = (e) => {
 
 bucatarieCorpParteJosStore.addRezultat(valoriBucatarieCorpParteJos);
 };
+
+const setareCant = () => {
+rezultate.value.map(rez => {
+
+    rez.dimensiuneLaterala.lungimeCant = cantDimLatLungime;
+    rez.dimensiuneLaterala.latimeCant = cantDimLatLatime;
+  });
+
+  console.log(rezultate)
+}
+
 </script>

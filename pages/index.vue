@@ -61,7 +61,6 @@
 </template>
 
 <script setup>
-import { useSertareHaffeleStore } from "#imports";
 import * as XLSX from "xlsx";
 
 const dulapuriStore = useDulapuriStore();
@@ -160,6 +159,9 @@ const descarcaFisier = () => {
         Lungime: buc.dimensiuneLaterala.lungime,
         Latime: buc.dimensiuneLaterala.latime,
         "Nr. Bucati": buc.dimensiuneLaterala.bucati,
+        "Cant Lungime": buc.dimensiuneLaterala.lungimeCant,
+        "Cant Latime": buc.dimensiuneLaterala.latimeCant,
+        Total: buc.total,
       },
       {
         "Denumire Piesa": "Piese Legatura corp jos",
@@ -481,7 +483,15 @@ const descarcaFisier = () => {
 
   //Excel
   const worksheet = XLSX.utils.json_to_sheet(allData, {
-    header: ["Denumire Piesa", "Nr. Bucati", "Lungime", "Latime"],
+    header: [
+      "Denumire Piesa",
+      "Nr. Bucati",
+      "Lungime",
+      "Latime",
+      "Cant Lungime",
+      "Cant Latime",
+      "Total",
+    ],
   });
 
   worksheet["!cols"] = [
