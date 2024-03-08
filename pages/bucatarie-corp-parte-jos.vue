@@ -33,8 +33,6 @@
           Dimensiuni laterale: lungime
           {{ rez.dimensiuneLaterala.lungime }}, latime
           {{ rez.dimensiuneLaterala.latime }} (2 buc)
-          <input type="number" placeholder="Cant lungime" v-model="cantDimLatLungime" class="focus:outline-none focus:shadow-outline border p-1">
-          <input type="number" placeholder="Cant latime" v-model="cantDimLatLatime" class="focus:outline-none focus:shadow-outline border p-1">
           <br />
           Dimensiuni Piese de legătură: lungime
           {{ rez.dimensiunePieseLegatura.lungime }}, latime
@@ -49,12 +47,7 @@
           lungime {{ rez.dimensiuneUsiJos.lungime }}, latime {{ rez.dimensiuneUsiJos.latime }} (<span>{{ rez.dimensiuneUsiJos.bucatiUsi }} Buc</span>) <br>
           Total: {{ rez.total }}
         </p>
-        <button
-          class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-          @click="setareCant"
-        >
-          Setare Cant
-        </button>
+  
       </div>
     </div>
   </div>
@@ -68,8 +61,6 @@ const bucatarieCorpParteJosStore = useBucatarieCorpParteJos();
 let valoriBucatarieCorpParteJos;
 
 const dimensiuneFund = ref(0);
-const cantDimLatLungime = ref(0)
-const cantDimLatLatime = ref(0)
 const rezultate = ref([]);
 let rezultateUsiJos = [];
 
@@ -101,8 +92,6 @@ const calculeazaDimensiuni = (e) => {
       lungime: 728,
       latime: 500,
       bucati: 2,
-      lungimeCant: 0,
-      latimeCant: 0
     };
 
     // Calcularea dimensiunii Piese de legătură
@@ -158,14 +147,5 @@ const calculeazaDimensiuni = (e) => {
 bucatarieCorpParteJosStore.addRezultat(valoriBucatarieCorpParteJos);
 };
 
-const setareCant = () => {
-rezultate.value.map(rez => {
-
-    rez.dimensiuneLaterala.lungimeCant = cantDimLatLungime;
-    rez.dimensiuneLaterala.latimeCant = cantDimLatLatime;
-  });
-
-  console.log(rezultate)
-}
 
 </script>

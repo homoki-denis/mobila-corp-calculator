@@ -159,8 +159,6 @@ const descarcaFisier = () => {
         Lungime: buc.dimensiuneLaterala.lungime,
         Latime: buc.dimensiuneLaterala.latime,
         "Nr. Bucati": buc.dimensiuneLaterala.bucati,
-        "Cant Lungime": buc.dimensiuneLaterala.lungimeCant,
-        "Cant Latime": buc.dimensiuneLaterala.latimeCant,
         Total: buc.total,
       },
       {
@@ -483,15 +481,7 @@ const descarcaFisier = () => {
 
   //Excel
   const worksheet = XLSX.utils.json_to_sheet(allData, {
-    header: [
-      "Denumire Piesa",
-      "Nr. Bucati",
-      "Lungime",
-      "Latime",
-      "Cant Lungime",
-      "Cant Latime",
-      "Total",
-    ],
+    header: ["Denumire Piesa", "Nr. Bucati", "Lungime", "Latime", "Total"],
   });
 
   worksheet["!cols"] = [
