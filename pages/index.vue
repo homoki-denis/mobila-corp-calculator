@@ -78,6 +78,7 @@ const bucatarieCorpColtParteJosStore = useBucatarieCorpColtParteJos();
 const sertareGtvStore = useSertareGtvStore();
 const sertareBlumStore = useSertareBlumStore();
 const sertareHaffeleStore = useSertareHaffeleStore();
+const palStore = usePalStore();
 
 const descarcaFisier = () => {
   const dulapuri = dulapuriStore.valoriDulapuri.flatMap((dulap) => [
@@ -472,6 +473,17 @@ const descarcaFisier = () => {
     },
   ]);
 
+  const pal = palStore.valoriPal.flatMap((buc) => [
+    {
+      "Denumire Piesa": "Pal",
+      Lungime: buc.lungimePal,
+      Latime: buc.latimePal,
+      "Nr. Piese": buc.nrPiese,
+    },
+  ]);
+
+  console.log(palStore.valoriPal);
+
   const allData = [
     ...bucatarieCorpParteJos,
     ...bucatarieCorpParteSus,
@@ -484,11 +496,19 @@ const descarcaFisier = () => {
     ...bucatarieCorpColtParteJosObiect,
     ...bucatarieCorpColtParteSus,
     ...dulapuri,
+    ...pal,
   ];
 
   //Excel
   const worksheet = XLSX.utils.json_to_sheet(allData, {
-    header: ["Denumire Piesa", "Nr. Bucati", "Lungime", "Latime", "Total"],
+    header: [
+      "Denumire Piesa",
+      "Nr. Bucati",
+      "Lungime",
+      "Latime",
+      "Nr. Piese",
+      "Total",
+    ],
   });
 
   worksheet["!cols"] = [

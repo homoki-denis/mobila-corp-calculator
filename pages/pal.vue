@@ -10,7 +10,7 @@
             >Lungime Pal</label
           >
           <input
-            v-model="lungimeCorpSus"
+            v-model="lungimePal"
             class="w-full px-3 py-2 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
             id="lungimeCorpSus"
             type="number"
@@ -20,7 +20,7 @@
             >Latime Pal</label
           >
           <input
-            v-model="inaltimeCorpSus"
+            v-model="latimePal"
             class="w-full px-3 py-2 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
             id="inaltimeCorpSus"
             type="number"
@@ -30,7 +30,7 @@
             >Nr. Piese</label
           >
           <input
-            v-model="nrPolita"
+            v-model="nrPiese"
             class="w-full px-3 py-2 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
             id="inaltimeCorpSus"
             type="number"
@@ -46,26 +46,15 @@
       </form>
 
       <div
-        v-for="(rez, i) in rezultate"
+        v-for="(rez, index) in rezultate"
+        :key="index"
         class="bg-white text-black px-8 py-12 rounded shadow-md w-full max-w-md"
       >
         <p class="text-gray-700">
-          Dimensiuni laterale: lungime {{ rez.dimensiuneLaterala.lungime }},
-          latime {{ rez.dimensiuneLaterala.latime }} (2 Buc)
-          <br />
-          Dimensiuni PFL: lungime {{ rez.dimensiunePFL.lungime }}, latime
-          {{ rez.dimensiunePFL.latime }}
-          <br />
-          Dimensiuni Polita: lungime {{ rez.dimensiunePolita.lungime }}, latime
-          {{ rez.dimensiunePolita.latime }} ({{ rez.nrPolita }} Buc)
-          <br />
-          Dimensiuni fund și capac: lungime
-          {{ rez.dimensiuneFundCap.lungime }}, latime
-          {{ rez.dimensiuneFundCap.latime }}
+          Lungime Pal: {{ rez.lungimePal }}<br />
+          Latime Pal: {{ rez.latimePal }}<br />
+          Nr. Piese: {{ rez.nrPiese }}
         </p>
-        <p class="font-bold">Dimensiuni usi sus</p>
-        lungime {{ rez.rezultateUsiSus.lungime }}, latime
-        {{ rez.rezultateUsiSus.latime }} ({{ rez.bucati }} Buc)
       </div>
     </div>
   </div>
@@ -73,85 +62,37 @@
 
 <script setup>
 import { ref } from "vue";
-import { useBucatarieCorpParteSus } from "@/store/bucatarie-corp-parte-sus";
+import { usePalStore } from "@/store/pal";
+const palStore = usePalStore();
 
-const bucatarieCorpParteSusStore = useBucatarieCorpParteSus();
-let valoriBucatarieCorpParteSus;
-
-const lungimeCorpSus = ref(0);
-const inaltimeCorpSus = ref(0);
-const nrPolita = ref(0);
-const initialNrPolita = ref(0);
+const lungimePal = ref(0);
+const latimePal = ref(0);
+const nrPiese = ref(0);
 const rezultate = ref([]);
 
 const calculeazaDimensiuni = (e) => {
-  const initialNrPolita = nrPolita.value;
-  let rezultateUsiSus;
   e.preventDefault();
-  const generareDimensiuni = (lungimeCorpSus, inaltimeCorpSus) => {
-    let latimeUsa;
-    let bucati;
-    if (lungimeCorpSus <= 450) {
-      latimeUsa = lungimeCorpSus - 3;
-      bucati = 1;
-    } else {
-      latimeUsa = lungimeCorpSus / 2 - 3;
-      bucati = 2;
-    }
 
-    rezultateUsiSus = {
-      lungime: inaltimeCorpSus,
-      latime: latimeUsa,
-      bucati: bucati,
-    };
-    // Calcularea dimensiunii laterale
-    const dimensiuneLaterala = {
-      lungime: inaltimeCorpSus,
-      latime: 300,
-      bucati: 2,
-    };
-
-    // Calcularea dimensiunii PFL
-    const dimensiunePFL = {
-      lungime: lungimeCorpSus - 5,
-      latime: inaltimeCorpSus - 5,
-      bucati: 1,
-    };
-
-    // Calcularea dimensiunii Poliță
-    const dimensiunePolita = {
-      lungime: lungimeCorpSus - 36,
-      latime: 295,
-      bucati: initialNrPolita,
-    };
-
-    // Calcularea dimensiunilor fundului și capacului
-    const latimeFundCap = lungimeCorpSus - 36;
-    const dimensiuneFundCap = {
-      lungime: latimeFundCap,
-      latime: 300,
-      bucati: 2,
-    };
-
-    // Returnarea rezultatelor sub formă de obiect
+  const generareDimensiuni = (lungimePal, latimePal, nrPiese) => {
     return {
-      dimensiuneLaterala: dimensiuneLaterala,
-      dimensiunePFL: dimensiunePFL,
-      dimensiunePolita: dimensiunePolita,
-      dimensiuneFundCap: dimensiuneFundCap,
-      rezultateUsiSus: rezultateUsiSus,
-      nrPolita: initialNrPolita,
-      bucati: bucati,
+      lungimePal,
+      latimePal,
+      nrPiese,
     };
   };
 
-  valoriBucatarieCorpParteSus = generareDimensiuni(
-    lungimeCorpSus.value,
-    inaltimeCorpSus.value
+  rezultate.value.push(
+    generareDimensiuni(lungimePal.value, latimePal.value, nrPiese.value)
   );
 
-  rezultate.value.push(valoriBucatarieCorpParteSus);
+  const valoriPal = generareDimensiuni(
+    lungimePal.value,
+    latimePal.value,
+    nrPiese.value
+  );
 
-  bucatarieCorpParteSusStore.addRezultat(valoriBucatarieCorpParteSus);
+  palStore.addRezultat(valoriPal);
+
+  console.log(rezultate);
 };
 </script>
