@@ -478,7 +478,7 @@ const descarcaFisier = () => {
       "Denumire Piesa": "Pal",
       Lungime: buc.lungimePal,
       Latime: buc.latimePal,
-      "Nr. Piese": buc.nrPiese,
+      "Nr. Bucati": buc.nrPiese,
     },
   ]);
 
@@ -501,14 +501,7 @@ const descarcaFisier = () => {
 
   //Excel
   const worksheet = XLSX.utils.json_to_sheet(allData, {
-    header: [
-      "Denumire Piesa",
-      "Nr. Bucati",
-      "Lungime",
-      "Latime",
-      "Nr. Piese",
-      "Total",
-    ],
+    header: ["Denumire Piesa", "Nr. Bucati", "Lungime", "Latime", "Total"],
   });
 
   worksheet["!cols"] = [
